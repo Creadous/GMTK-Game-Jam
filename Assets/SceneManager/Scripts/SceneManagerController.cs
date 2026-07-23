@@ -158,7 +158,7 @@ public class SceneManagerController : MonoBehaviour
     private IEnumerator TeleportStarting(SceneTransitionType transitionType)
     {
         isCurrentlyTeleporting = true;
-        //GameController.PauseGame(true);
+        GameController.PauseGame(true);
         //transition
         yield return PlayTrantion(transitionType, false);
         yield return new WaitForFixedUpdate();
@@ -168,7 +168,7 @@ public class SceneManagerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         yield return PlayTrantion(transitionType, true);
-        //GameController.UnPauseGame();
+        GameController.UnPauseGame();
         isCurrentlyTeleporting = false;
     }
 

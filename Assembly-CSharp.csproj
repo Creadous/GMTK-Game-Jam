@@ -82,6 +82,15 @@
     <Compile Include="Assets\SceneManager\Scripts\TransitionController.cs" />
     <Compile Include="Assets\SceneManager\Scripts\Teleporter.cs" />
     <Compile Include="Assets\SceneManager\Scripts\PlayerSpawnLocation.cs" />
+    <Compile Include="Assets\Game\Core\Scripts\GameController.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\DungeonRoom.cs" />
+    <Compile Include="Assets\Game\Player\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Game\Player\Scripts\DungeonCrawlerMovment.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\DungeonManager.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\TileData.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\DungeonRoomEditor.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\DungeonTile.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\DungeonDoorTile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
