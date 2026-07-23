@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2799008338432574827}
   - component: {fileID: 2799008338432574824}
   m_Layer: 0
-  m_Name: DungeonRoom
+  m_Name: DungeonRoom_base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,703 +52,803 @@ MonoBehaviour:
   cellSize: 5
   DungeonTilePrefab: {fileID: 4391382976533743627, guid: 6309975866f05534591306695f0d0b92, type: 3}
   dungeonStartingDoorPrefab: {fileID: 9200415892860852227, guid: ce2a58bcd9d2bbc4f8c795e58b6f13a2, type: 3}
-  dungeonExitDoorPrefab: {fileID: 0}
+  dungeonExitDoorPrefab: {fileID: 9200415892860852227, guid: 33cc908fcd1e6014eaa06c22ef2d0b3a, type: 3}
   containerForDungeonTiles: {fileID: 2799008338884498324}
   tiles:
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
       east: 0
       west: 0
     occupied: 0
-  - type: 0
+  - gridPosition: {x: 0, y: 0}
+    type: 0
     walls:
       north: 0
       south: 0
@@ -757,7 +857,6 @@ MonoBehaviour:
     occupied: 0
   selectedTile: 34
   startingPosition: {fileID: 0}
-  possibleExits: []
 --- !u!1 &2799008338884498324
 GameObject:
   m_ObjectHideFlags: 0

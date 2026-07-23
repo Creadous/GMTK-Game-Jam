@@ -6,11 +6,12 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     private DungeonCrawlerMovment movment;
-
+    private InteractablePlayerController interactablePlayer;
     private void Awake()
     {
         instance = this;
         movment = GetComponent<DungeonCrawlerMovment>();
+        interactablePlayer = GetComponent<InteractablePlayerController>();
     }
     // Start is called before the first frame update
     void Start()
@@ -52,5 +53,10 @@ public class PlayerController : MonoBehaviour
         this.transform.position = newTransform.position;
         this.transform.rotation = newTransform.rotation;// Quaternion.Euler(newTransform.rotation.x, newTransform.rotation.y, newTransform.rotation.z);
         //movementController.controller.enabled = true;
+    }
+    public void ResetInteractablePlayer()
+    {
+        interactablePlayer.StopInteractingWithObject();
+        interactablePlayer.HidePopUp();
     }
 }

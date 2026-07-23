@@ -157,17 +157,33 @@ public class DungeonRoom : MonoBehaviour
                 }
 
                 //spawnDoor
-                if(tile.type != TileType.Empty && tile.type != TileType.Floor)
+                switch (tile.type)
                 {
-                    GameObject DungeonStartingDoorObject = Instantiate(dungeonStartingDoorPrefab, position + Vector3.right * 0.5f, Quaternion.Euler(0, 90, 0), containerForDungeonTiles.transform);
-                    DungeonDoorTile doorTile = DungeonStartingDoorObject.GetComponent<DungeonDoorTile>();
-                    doorTile.Setup(tile.type);
-                    if (doorTile.startingDoor)
-                    {
-                        startingPosition = doorTile.currentSpawnLocation;
-                    }
-                }
-              
+                    case TileType.StartNorth:
+                    case TileType.StartSouth:
+                    case TileType.StartEast:
+                    case TileType.StartWest:
+                        {
+                            GameObject DungeonStartingDoorObject = Instantiate(dungeonStartingDoorPrefab, position + Vector3.right * 0.5f, Quaternion.Euler(0, 90, 0), containerForDungeonTiles.transform);
+                            DungeonDoorTile doorTile = DungeonStartingDoorObject.GetComponent<DungeonDoorTile>();
+                            doorTile.Setup(tile.type);
+                            if (doorTile.startingDoor)
+                            {
+                                startingPosition = doorTile.currentSpawnLocation;
+                            }
+                        }
+                        break;
+                    case TileType.ExitNorth:
+                    case TileType.ExitSouth:
+                    case TileType.ExitWest:
+                    case TileType.ExitEast:
+                        {
+                            GameObject DungeonStartingDoorObject = Instantiate(dungeonExitDoorPrefab, position + Vector3.right * 0.5f, Quaternion.Euler(0, 90, 0), containerForDungeonTiles.transform);
+                            DungeonDoorTile doorTile = DungeonStartingDoorObject.GetComponent<DungeonDoorTile>();
+                            doorTile.Setup(tile.type);
+                        }
+                        break;
+                }             
             }
         }
     }
@@ -178,5 +194,10 @@ public class DungeonRoom : MonoBehaviour
         {
             DestroyImmediate(containerForDungeonTiles.transform.GetChild(i).gameObject);
         }
+    }
+    public void DestroyRoom()
+    {
+        tiles.Clear();
+        ClearTiles();
     }
 }

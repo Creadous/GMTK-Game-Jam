@@ -91,6 +91,13 @@
     <Compile Include="Assets\Game\UI\Scripts\TitleScreenController.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonRoom.cs" />
     <Compile Include="Assets\Audio\Scripts\SoundEffectsGroup.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\DungeonTileLayout.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\DungeonExitDoorTeleporter.cs" />
+    <Compile Include="Assets\Game\Interactable\IInteractable.cs" />
+    <Compile Include="Assets\Game\Interactable\InteractableObject_DungeonDoorTeleporter.cs" />
+    <Compile Include="Assets\Game\Interactable\InteractablePlayerController.cs" />
+    <Compile Include="Assets\Game\Interactable\PlayerAimController.cs" />
+    <Compile Include="Assets\Game\Interactable\InteractableObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
