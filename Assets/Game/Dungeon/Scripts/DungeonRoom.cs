@@ -20,6 +20,8 @@ public class DungeonRoom : MonoBehaviour
     [Space]
     public PlayerSpawnLocation startingPosition;
 
+    public List<DungeonExitDoorTeleporter> exits;
+
 
     public TileData GetTile(int x, int y)
     {
@@ -141,6 +143,7 @@ public class DungeonRoom : MonoBehaviour
         //destory all object create for this room
         ClearTiles();
 
+        exits = new List<DungeonExitDoorTeleporter>();
 
         for (int y = 0; y < height; y++)
         {
@@ -181,6 +184,7 @@ public class DungeonRoom : MonoBehaviour
                             GameObject DungeonStartingDoorObject = Instantiate(dungeonExitDoorPrefab, position + Vector3.right * 0.5f, Quaternion.Euler(0, 90, 0), containerForDungeonTiles.transform);
                             DungeonDoorTile doorTile = DungeonStartingDoorObject.GetComponent<DungeonDoorTile>();
                             doorTile.Setup(tile.type);
+                            exits.Add(doorTile.currentExit);
                         }
                         break;
                 }             

@@ -412,6 +412,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ddadcbd46e51f2d43aca5fd09284a6fb, type: 3}
   - {fileID: 21300000, guid: bf6b81be67031ec4283517684589d93c, type: 3}
   - {fileID: 21300000, guid: d66fb1f180bf1cb4e9ac2c98706cf586, type: 3}
+  bossIcon: {fileID: 21300000, guid: 08120a88ec7c7f040ab14217fbbb059f, type: 3}
   doorTypeImage: {fileID: 5569879800596914787}
   nextRoomType: 
 --- !u!1001 &4669914891054541466

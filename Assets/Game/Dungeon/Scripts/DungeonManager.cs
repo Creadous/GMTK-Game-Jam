@@ -6,7 +6,7 @@ public class DungeonManager : MonoBehaviour
 {
     public static DungeonManager instance;
     // Start is called before the first frame update
-    [Header("dungeonLayout")]
+    [Header("DungeonLayout")]
     public List<DungeonTileLayout> dungeonTileLayouts;
     public DungeonTileLayout currentSelectLayout;
     
@@ -14,6 +14,11 @@ public class DungeonManager : MonoBehaviour
     [Header("DungeonRoom")]
     public DungeonRoom currentRoom;
 
+    public int currentRoomVisitCount;
+    public int numberOfRoomBeforeBoss;
+
+    [Header("UI")]
+    public BossRoomCountDownHud bossCountDownHud;
 
     private void Awake()
     {
@@ -22,10 +27,12 @@ public class DungeonManager : MonoBehaviour
     void Start()
     {
         currentSelectLayout = dungeonTileLayouts[Random.Range(0, dungeonTileLayouts.Count)];
+        numberOfRoomBeforeBoss = Random.Range(currentSelectLayout.RanngeOfRoomBeforeBoss.x, currentSelectLayout.RanngeOfRoomBeforeBoss.y);
         var roomObject = Instantiate(currentSelectLayout.startingDungeonRoomPrefab,this.transform);
         currentRoom = roomObject.GetComponent<DungeonRoom>();
 
         PlayerController.instance.SetModelPostion(currentRoom.startingPosition.spawnPoint);
+        UpdateBossCountDownUI();
     }
 
     // Update is called once per frame
@@ -84,6 +91,9 @@ public class DungeonManager : MonoBehaviour
                     roomChoice.Add(currentSelectLayout.TrapRoomPrefabs[i]);
                 }
                 break;
+            case "Boss":
+                roomChoice.Add(currentSelectLayout.bossDungeonRoomPrefab);
+                break;
         }
 
         selectRoom = roomChoice[Random.Range(0, roomChoice.Count)];
@@ -99,5 +109,26 @@ public class DungeonManager : MonoBehaviour
         //set player postion
         PlayerController.instance.SetModelPostion(currentRoom.startingPosition.spawnPoint);
         PlayerController.instance.ResetInteractablePlayer();
+
+        currentRoomVisitCount++;
+        SpawnBossDoor(); // turn all exit into boss doors
+        UpdateBossCountDownUI();
+    }
+
+    public void SpawnBossDoor()
+    {
+        if((currentRoomVisitCount +1) == numberOfRoomBeforeBoss) //room just before boss room
+        {
+            Debug.Log("Spawn boss room");
+            foreach(DungeonExitDoorTeleporter doorExit in currentRoom.exits)
+            {
+                doorExit.SetRoomToBossRoom();//boss room index
+            }
+        }
+    }
+    private void UpdateBossCountDownUI()
+    {
+        int roomsLeft = numberOfRoomBeforeBoss - currentRoomVisitCount;
+        bossCountDownHud.UpateCountDown(roomsLeft);
     }
 }
