@@ -33,7 +33,9 @@ public class DungeonRoom : MonoBehaviour
         {
             for(int x = 0; x <width; x++)
             {
-                tiles.Add(new TileData());
+                var tileData = new TileData();
+                tileData.gridPosition = new Vector2Int(x, y);
+                tiles.Add(tileData);
             }
         }
 

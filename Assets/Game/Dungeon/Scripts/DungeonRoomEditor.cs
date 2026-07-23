@@ -126,6 +126,8 @@ public class DungeonRoomEditor : Editor
 
         EditorGUI.BeginChangeCheck();
 
+        EditorGUILayout.Vector2IntField("Grid postion", tile.gridPosition);
+
         tile.type = (TileType)EditorGUILayout.EnumPopup("Type",tile.type);
 
         tile.walls.north = EditorGUILayout.Toggle("North Wall",tile.walls.north);

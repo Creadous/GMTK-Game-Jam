@@ -19,6 +19,7 @@ public enum TileType
 [System.Serializable]
 public class TileData
 {
+    public Vector2Int gridPosition;
     public TileType type;
 
     public WallData walls;
