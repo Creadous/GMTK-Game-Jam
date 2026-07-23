@@ -3,5 +3,6 @@ Assets/TextMesh Pro/*
 obj/Debug/*
 Logs/*
 Temp/*
+/Assets/_3rdParty/Synty/*
 Assets/Plugins/*
 Assets/Audio/SoundFiles/*
