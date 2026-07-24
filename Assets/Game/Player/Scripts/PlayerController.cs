@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
         if (movment.hasMoved)
         {
             movment.hasMoved = false;
-            GameController.instance.characterData.UpdateCurrentStamina(-1);
+            GameController.instance.characterData.combatStats.UpdateCurrentStamina(-1);
         }
 
         CheckStamina();
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckStamina()
     {
-        if( GameController.instance.characterData.GetCurrentStamina() == 0)
+        if( GameController.instance.characterData.combatStats.GetCurrentStamina() == 0)
         {
             GameController.instance.LaunchGameOverScreen();
         }
