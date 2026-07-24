@@ -1,23 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4284af5fadc36c47bb264444b357669, type: 3}
-  m_Name: Dungeon Tile Layout 01
-  m_EditorClassIdentifier: 
-  RanngeOfRoomBeforeBoss: {x: 4, y: 5}
-  startingDungeonRoomPrefab: {fileID: 2799008338432574825, guid: c32dd0c966b2c3e49a66c7d343613d1e, type: 3}
-  CombatRoomPrefabs:
-  - {fileID: 2799008338432574825, guid: 6c8a3d6f297457a4b9449bcf929bf057, type: 3}
-  ShopRoomPrefabs:
-  - {fileID: 2799008338432574825, guid: 629c371fa27c54446b862b7421babaa6, type: 3}
-  TrapRoomPrefabs:
-  - {fileID: 2799008338432574825, guid: 5192f4cab92150c44b2b5343bf9ec42a, type: 3}
-  bossDungeonRoomPrefab: {fileID: 2799008338432574825, guid: 3553bff6df230b64881a990d16675ed7, type: 3}
+version https://git-lfs.github.com/spec/v1
+oid sha256:62fda651cf707fc5237403e9cf2671db5bf8ccfcc5668380c52329291c80724a
+size 970

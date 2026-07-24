@@ -1,21 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b421573a2922a744d81090d26bbc90db, type: 3}
-  m_Name: Game Audio Sound Track
-  m_EditorClassIdentifier: 
-  titleScreenBMG: {fileID: 0}
-  dropshipBMG: {fileID: 0}
-  dungeonexploreBMG: {fileID: 0}
-  BattleSoundTrack: []
-  bossBGM: []
-  afterCombatBGM: {fileID: 0}
-  gameOverSoundEffect: {fileID: 0}
+version https://git-lfs.github.com/spec/v1
+oid sha256:68a60fdafa44d908ca4976bd2372258fc4d471d59bb3135b18d7655d733b4826
+size 603

@@ -1,25 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ea392eabdbe96a4bbf0f7cbaa554a5c, type: 3}
-  m_Name: Sound Effects_UI
-  m_EditorClassIdentifier: 
-  soundEffects:
-  - key: menu_move
-    clip: {fileID: 8300000, guid: 6967cf531cd5e6746a6914663fe90a47, type: 3}
-  - key: menu_click
-    clip: {fileID: 8300000, guid: 462c0f228d125c944951b2ddbfd44bf6, type: 3}
-  - key: menu_back
-    clip: {fileID: 8300000, guid: 22c49af130fb56d498939104e3f44fa5, type: 3}
-  - key: menu_open
-    clip: {fileID: 8300000, guid: 9276aa2eec45a4146953cf524bfb4a27, type: 3}
-  - key: menu_close
-    clip: {fileID: 8300000, guid: 5ea67dfad6b6bef48b00386870b00d51, type: 3}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e0ac87517deb47aadb80498d9d2297635741decb2992ffc20ad88696c295830b
+size 903
