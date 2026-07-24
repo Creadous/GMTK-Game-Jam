@@ -128,10 +128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d59073891e00e44dbe420b04f994869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  approachRing: {fileID: 0}
+  approachRing: {fileID: 4686473602709582280}
   shrinkDuration: 1.5
-  startSize: {x: 200, y: 200}
+  startSize: {x: 300, y: 300}
   endSize: {x: 0, y: 0}
+  hitWindowStart: 1.06
+  critWindowStart: 0.9
+  critWindowEnd: 1.05
 --- !u!1 &4686473602579154435
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +256,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4686473602579154446}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4686473601704767697}
+        m_TargetAssemblyTypeName: CircleController, Assembly-CSharp
+        m_MethodName: OnButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4686473602709582287
 GameObject:
   m_ObjectHideFlags: 0
