@@ -116,6 +116,42 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Combat01"",
+                    ""type"": ""Button"",
+                    ""id"": ""0ef4954b-ad0d-45ae-8e47-9a97a972a6e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Combat02"",
+                    ""type"": ""Button"",
+                    ""id"": ""75ec1597-a973-47b7-a566-76efa0f26c90"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Combat03"",
+                    ""type"": ""Button"",
+                    ""id"": ""36575ec2-d2bb-4e9d-89b8-7384d0ff595f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Combat04"",
+                    ""type"": ""Button"",
+                    ""id"": ""15ce0dde-3493-4aa7-81ee-7c52102aeb5a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -386,7 +422,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""579665a6-4183-4c52-8e78-f67f29470b20"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -448,6 +484,72 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""action"": ""TabRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f9b3b14-ee71-4301-901d-68903e580ea2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardMouse"",
+                    ""action"": ""Combat01"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8ed25fd-9bb8-4197-b468-92366451f839"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Combat01"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57bffda4-53eb-4b5d-a975-8df5bba47865"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardMouse"",
+                    ""action"": ""Combat02"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a4694bb-4086-4153-9432-93251452ac90"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Combat02"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d415098-8acd-4e7f-b9bc-958fb65c97a7"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardMouse"",
+                    ""action"": ""Combat03"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16313f8f-9634-4bfe-8d98-9236d9fc591d"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardMouse"",
+                    ""action"": ""Combat04"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -489,6 +591,10 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_TabLeft = m_Player.FindAction("TabLeft", throwIfNotFound: true);
         m_Player_TabRight = m_Player.FindAction("TabRight", throwIfNotFound: true);
+        m_Player_Combat01 = m_Player.FindAction("Combat01", throwIfNotFound: true);
+        m_Player_Combat02 = m_Player.FindAction("Combat02", throwIfNotFound: true);
+        m_Player_Combat03 = m_Player.FindAction("Combat03", throwIfNotFound: true);
+        m_Player_Combat04 = m_Player.FindAction("Combat04", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -560,6 +666,10 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_TabLeft;
     private readonly InputAction m_Player_TabRight;
+    private readonly InputAction m_Player_Combat01;
+    private readonly InputAction m_Player_Combat02;
+    private readonly InputAction m_Player_Combat03;
+    private readonly InputAction m_Player_Combat04;
     public struct PlayerActions
     {
         private @CharacterInput m_Wrapper;
@@ -574,6 +684,10 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @TabLeft => m_Wrapper.m_Player_TabLeft;
         public InputAction @TabRight => m_Wrapper.m_Player_TabRight;
+        public InputAction @Combat01 => m_Wrapper.m_Player_Combat01;
+        public InputAction @Combat02 => m_Wrapper.m_Player_Combat02;
+        public InputAction @Combat03 => m_Wrapper.m_Player_Combat03;
+        public InputAction @Combat04 => m_Wrapper.m_Player_Combat04;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -613,6 +727,18 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @TabRight.started += instance.OnTabRight;
             @TabRight.performed += instance.OnTabRight;
             @TabRight.canceled += instance.OnTabRight;
+            @Combat01.started += instance.OnCombat01;
+            @Combat01.performed += instance.OnCombat01;
+            @Combat01.canceled += instance.OnCombat01;
+            @Combat02.started += instance.OnCombat02;
+            @Combat02.performed += instance.OnCombat02;
+            @Combat02.canceled += instance.OnCombat02;
+            @Combat03.started += instance.OnCombat03;
+            @Combat03.performed += instance.OnCombat03;
+            @Combat03.canceled += instance.OnCombat03;
+            @Combat04.started += instance.OnCombat04;
+            @Combat04.performed += instance.OnCombat04;
+            @Combat04.canceled += instance.OnCombat04;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -647,6 +773,18 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @TabRight.started -= instance.OnTabRight;
             @TabRight.performed -= instance.OnTabRight;
             @TabRight.canceled -= instance.OnTabRight;
+            @Combat01.started -= instance.OnCombat01;
+            @Combat01.performed -= instance.OnCombat01;
+            @Combat01.canceled -= instance.OnCombat01;
+            @Combat02.started -= instance.OnCombat02;
+            @Combat02.performed -= instance.OnCombat02;
+            @Combat02.canceled -= instance.OnCombat02;
+            @Combat03.started -= instance.OnCombat03;
+            @Combat03.performed -= instance.OnCombat03;
+            @Combat03.canceled -= instance.OnCombat03;
+            @Combat04.started -= instance.OnCombat04;
+            @Combat04.performed -= instance.OnCombat04;
+            @Combat04.canceled -= instance.OnCombat04;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -694,5 +832,9 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnTabLeft(InputAction.CallbackContext context);
         void OnTabRight(InputAction.CallbackContext context);
+        void OnCombat01(InputAction.CallbackContext context);
+        void OnCombat02(InputAction.CallbackContext context);
+        void OnCombat03(InputAction.CallbackContext context);
+        void OnCombat04(InputAction.CallbackContext context);
     }
 }

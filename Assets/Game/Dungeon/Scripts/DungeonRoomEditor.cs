@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(DungeonRoom))]
@@ -147,3 +148,4 @@ public class DungeonRoomEditor : Editor
         }
     }
 }
+#endif

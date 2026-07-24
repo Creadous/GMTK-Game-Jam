@@ -20,6 +20,11 @@ public class InputManager : MonoBehaviour
 	public bool tabLeft;
 	public bool tabRight;
 
+	public bool combat01;
+	public bool combat02;
+	public bool combat03;
+	public bool combat04;
+
 	[Header("Mouse Cursor Settings")]
 	public bool cursorLocked = true;
 	public bool cursorInputForLook = true;
@@ -71,6 +76,20 @@ public class InputManager : MonoBehaviour
 
 			playerInput.Player.TabRight.performed += i => tabRight = true;
 			playerInput.Player.TabRight.canceled += i => tabRight = false;
+
+
+			//combat
+			playerInput.Player.Combat01.performed += i => combat01 = true;
+			playerInput.Player.Combat01.canceled += i => combat01 = false;
+
+			playerInput.Player.Combat02.performed += i => combat02 = true;
+			playerInput.Player.Combat02.canceled += i => combat02 = false;
+			
+			playerInput.Player.Combat03.performed += i => combat03 = true;
+			playerInput.Player.Combat03.canceled += i => combat03 = false;
+
+			playerInput.Player.Combat04.performed += i => combat04 = true;
+			playerInput.Player.Combat04.canceled += i => combat04 = false;
 
 
 		}

@@ -11,11 +11,20 @@ public class GameController : MonoBehaviour
     public GameObject gameOverScreenPrefab;
     private GameOverMenuController gameOverController;
 
-
-    public CharacterData characterData;
+    [Header("LootDropMenu")]
+    public GameObject lootMenuPrefab;
+    private LootDropMenuController lootDropMenuController;
 
     [Header("Canvas")]
     public Transform Canvas;
+
+    [Space]
+
+    public CharacterData characterData;
+
+    
+
+    
 
     private void Awake()
     {
@@ -54,5 +63,18 @@ public class GameController : MonoBehaviour
             //gameOverController.SetUp();
             //SaveGame();
         }
+    }
+
+    public void OpenLootDropMenu(List<ItemStatsBase> loot, Vector2Int goldRange) 
+    {
+        PauseGame(true);
+        var menuObject =Instantiate(lootMenuPrefab, Canvas);
+        lootDropMenuController = menuObject.GetComponent<LootDropMenuController>();
+        lootDropMenuController.SetUp(loot,goldRange);
+    }
+    public void CloseLootDropMenu()
+    {
+        Destroy(lootDropMenuController.gameObject);
+        UnPauseGame();
     }
 }
