@@ -7,6 +7,11 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     [SerializeField] private bool paused;
 
+    [Header("GameOverScreen")]
+    public GameObject gameOverScreenPrefab;
+    private GameOverMenuController gameOverController;
+
+
     public CharacterData characterData;
 
     [Header("Canvas")]
@@ -38,4 +43,16 @@ public class GameController : MonoBehaviour
         instance.paused = false;
     }
     #endregion
+
+    public void LaunchGameOverScreen()
+    {
+        if (gameOverController == null)
+        {
+            PauseGame(true);
+            GameObject gameOverObject = Instantiate(gameOverScreenPrefab, Canvas);
+            gameOverController = gameOverObject.GetComponent<GameOverMenuController>();
+            //gameOverController.SetUp();
+            //SaveGame();
+        }
+    }
 }

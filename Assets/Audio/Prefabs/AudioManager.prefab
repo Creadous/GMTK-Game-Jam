@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6450849777262568896}
   m_RootOrder: 1
@@ -154,6 +155,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6450849777262568896}
   m_RootOrder: 0
@@ -281,6 +283,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6450849777262568896}
   m_RootOrder: 2
@@ -409,6 +412,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1983149248797823752}
   - {fileID: 5839453666096368902}
@@ -457,15 +461,6 @@ MonoBehaviour:
   playUIBack:
     m_PersistentCalls:
       m_Calls: []
-  soundTrack: {fileID: 11400000, guid: 6d386a17385a8364a8876068f850692b, type: 2}
+  soundTrack: {fileID: 11400000, guid: 05b3250062268c548be59026b12f94a7, type: 2}
   soundEffects:
-  - {fileID: 11400000, guid: 9f16c5e6e242d0c4ab1999813180fbf6, type: 2}
-  - {fileID: 11400000, guid: d21b32b43a9de6842b85987303a9dfba, type: 2}
-  - {fileID: 11400000, guid: ee4a5361178779142b8f8f977e3d2e2c, type: 2}
-  - {fileID: 11400000, guid: 629ccbc2e7079f94fb2b354fe7e25f90, type: 2}
-  - {fileID: 11400000, guid: 2b08e489759a8ba40ba6a0218f7d9e0c, type: 2}
-  - {fileID: 11400000, guid: 163e61f33e329c04eab6e5f6c3fa8934, type: 2}
-  - {fileID: 11400000, guid: 13e4228d11b7abc4d82fc8c011e423f8, type: 2}
-  - {fileID: 11400000, guid: ad3006d6fc64f8442869cffd6ac20efc, type: 2}
-  - {fileID: 11400000, guid: 6931096d0ca4d4d4c8de44df496ea37a, type: 2}
-  - {fileID: 11400000, guid: 2431a864a5efba5419cdd0040ad854f3, type: 2}
+  - {fileID: 11400000, guid: 3594c9b30a7999640b17455be5ac3879, type: 2}

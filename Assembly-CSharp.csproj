@@ -103,6 +103,7 @@
     <Compile Include="Assets\Utilites\UI\Scripts\FillBar.cs" />
     <Compile Include="Assets\Game\UI\Scripts\PlayerHudController.cs" />
     <Compile Include="Assets\Game\Core\Scripts\CharacterData.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\GameOverMenuController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

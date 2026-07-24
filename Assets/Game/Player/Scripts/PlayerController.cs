@@ -22,12 +22,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameController.IsGamePaused() == true) return;
         HandleMovement();
+
+
+        //stamina damage
         if (movment.hasMoved)
         {
             movment.hasMoved = false;
             GameController.instance.characterData.UpdateCurrentStamina(-1);
         }
+
+        CheckStamina();
     }
     void HandleMovement()
     {
@@ -63,5 +69,12 @@ public class PlayerController : MonoBehaviour
     {
         interactablePlayer.StopInteractingWithObject();
         interactablePlayer.HidePopUp();
+    }
+    private void CheckStamina()
+    {
+        if( GameController.instance.characterData.GetCurrentStamina() == 0)
+        {
+            GameController.instance.LaunchGameOverScreen();
+        }
     }
 }

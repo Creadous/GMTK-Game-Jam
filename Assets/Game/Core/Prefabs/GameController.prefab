@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8054307378075109756}
   - component: {fileID: 3481111543584328148}
+  - component: {fileID: 1176193005}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -46,7 +47,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  gameOverScreenPrefab: {fileID: 6027192235108452945, guid: 8e7e20687d05a54469032395526946a9, type: 3}
+  characterData: {fileID: 1176193005}
   Canvas: {fileID: 771120517836746541}
+--- !u!114 &1176193005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105428510782031185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36031908f5dafc4418088b89d8c62aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentStamina: 100
+  totalStamina: 100
+  currentMagic: 100
+  totalMagic: 100
+  gold: 0
 --- !u!1 &605830708280397257
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,9 +124,9 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_TargetDisplay: 0
 --- !u!114 &118646353673164516
 MonoBehaviour:

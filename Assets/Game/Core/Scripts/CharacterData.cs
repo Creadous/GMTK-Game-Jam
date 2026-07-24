@@ -20,6 +20,8 @@ public class CharacterData : MonoBehaviour
     public void UpdateCurrentStamina(int amount)
     {
         currentStamina += amount;
+        if (currentStamina < 0) currentStamina = 0;
+        if (currentStamina > totalStamina) currentStamina = totalStamina;
     }
     public int GetCurrentMagic()
     {
@@ -28,6 +30,16 @@ public class CharacterData : MonoBehaviour
     public void UpdateCurrentMagic(int amount)
     {
         currentMagic += amount;
+        if (currentMagic < 0) currentMagic = 0;
+        if (currentMagic > totalMagic) currentMagic = totalMagic;
     }
     #endregion
+
+    public void ResetStats()
+    {
+        currentStamina = totalStamina;
+        currentMagic = totalMagic;
+        gold = 0;
+
+    }
 }
