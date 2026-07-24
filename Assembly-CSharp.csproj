@@ -99,6 +99,7 @@
     <Compile Include="Assets\Game\Interactable\PlayerAimController.cs" />
     <Compile Include="Assets\Game\Interactable\InteractableObject.cs" />
     <Compile Include="Assets\Game\UI\Scripts\BossRoomCountDownHud.cs" />
+    <Compile Include="Assets\Game\MiniGame\Scripts\CircleController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
