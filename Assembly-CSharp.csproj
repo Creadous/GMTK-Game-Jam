@@ -118,6 +118,13 @@
     <Compile Include="Assets\Game\Items\Scripts\MasterItemList.cs" />
     <Compile Include="Assets\Game\UI\Scripts\LootDropMenuController.cs" />
     <Compile Include="Assets\Game\UI\Scripts\TreasureCard.cs" />
+    <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_NPC.cs" />
+    <Compile Include="Assets\Game\DialogueSystem\Scripts\SimpleDialogueSystem.cs" />
+    <Compile Include="Assets\Game\MiniGame\Scripts\MeleeMiniGame.cs" />
+    <Compile Include="Assets\Game\MiniGame\Scripts\BowMiniGame.cs" />
+    <Compile Include="Assets\Game\MiniGame\Scripts\MeleeController.cs" />
+    <Compile Include="Assets\Game\DialogueSystem\Scripts\Dialogue.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\ShopMenuController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

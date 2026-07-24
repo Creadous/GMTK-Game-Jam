@@ -2167,7 +2167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4416664668597202487, guid: 41d324bc8e9d2b34eb378645503d76ab, type: 3}
       propertyPath: field of view
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4416664668597202487, guid: 41d324bc8e9d2b34eb378645503d76ab, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -3532,6 +3532,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1906379827, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 6801036557125031612, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
       propertyPath: m_Name
       value: PlayerController

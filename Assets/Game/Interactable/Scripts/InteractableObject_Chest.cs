@@ -29,6 +29,6 @@ public class InteractableObject_Chest : InteractableObject
         isOpened = true;
         //pop up item second
         GameController.instance.OpenLootDropMenu(ItemDrops, goldRange);
-        return true;
+        return false;
     }
 }

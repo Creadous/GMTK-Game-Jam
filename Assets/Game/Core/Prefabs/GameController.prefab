@@ -103,8 +103,10 @@ MonoBehaviour:
   paused: 0
   gameOverScreenPrefab: {fileID: 6027192235108452945, guid: 8e7e20687d05a54469032395526946a9, type: 3}
   lootMenuPrefab: {fileID: 1748179768351442139, guid: 6e6318874c976d742b7b6db5cad0b6c3, type: 3}
-  characterData: {fileID: 1176193005}
+  dialogueSystemPrefab: {fileID: 3117290251094595987, guid: 611c761b9d457f64f853b4162e9c5e95, type: 3}
+  shopMenuPrefab: {fileID: 3863276337525942044, guid: 5ef2642ff7ebd5b4199f7df081ccee0e, type: 3}
   Canvas: {fileID: 771120517836746541}
+  characterData: {fileID: 1176193005}
 --- !u!114 &1176193005
 MonoBehaviour:
   m_ObjectHideFlags: 0

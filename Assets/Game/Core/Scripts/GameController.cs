@@ -15,16 +15,20 @@ public class GameController : MonoBehaviour
     public GameObject lootMenuPrefab;
     private LootDropMenuController lootDropMenuController;
 
+    [Header("DialogueSystem")]
+    public GameObject dialogueSystemPrefab;
+    private SimpleDialogueSystem dialogueSystem;
+
+    [Header("ShopMenu")]
+    public GameObject shopMenuPrefab;
+    private ShopMenuController shopmenu;
+
     [Header("Canvas")]
     public Transform Canvas;
 
     [Space]
 
     public CharacterData characterData;
-
-    
-
-    
 
     private void Awake()
     {
@@ -76,5 +80,29 @@ public class GameController : MonoBehaviour
     {
         Destroy(lootDropMenuController.gameObject);
         UnPauseGame();
+    }
+
+    public void LaunchDialogueSystem(Dialogue dialogue, InteractableObject_NPC talker)
+    {
+        PauseGame(false);
+        var menuObject = Instantiate(dialogueSystemPrefab, Canvas);
+        dialogueSystem = menuObject.GetComponent<SimpleDialogueSystem>();
+        dialogueSystem.SetUp(dialogue, talker);
+    }
+    public void CloseDialogueSystem()
+    {
+        GameObject.Destroy(dialogueSystem.gameObject);
+        UnPauseGame();
+    }
+    public void LaunchShopMenu(InteractableObject_NPC talker)
+    {
+        var menuObject = Instantiate(shopMenuPrefab, Canvas);
+        shopmenu = menuObject.GetComponent<ShopMenuController>();
+        shopmenu.SetUp(talker);
+    }
+    public void CloseShopMenu()
+    {
+        dialogueSystem.NextNode();
+        GameObject.Destroy(shopmenu.gameObject);
     }
 }

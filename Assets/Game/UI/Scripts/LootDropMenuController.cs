@@ -9,6 +9,11 @@ public class LootDropMenuController : MonoBehaviour
     public Vector2Int goldRange;
     public List<TreasureCard> treasureCards;
     public ButtonSelectionBase buttonSelection;
+
+    public void Awake()
+    {
+        buttonSelection.SelectionAcceptedCallback.AddListener(() => LootDropMenuController_SelectionAcceptedCallback());
+    }
     public void SetUp(List<ItemStatsBase> treasure, Vector2Int gold)
     {
         goldRange = gold;
@@ -45,26 +50,23 @@ public class LootDropMenuController : MonoBehaviour
     {
         if (finishedWithMenu) return;
         buttonSelection.HandleButtonCycle(InputManager.instance.move.x * -1);
-        HandleInput();
+        buttonSelection.HandleButtonInputs();
     }
-    public void HandleInput()
+    public void LootDropMenuController_SelectionAcceptedCallback()
     {
 
-        if (InputManager.instance.AcceptInputRequested())
-        {           
-            if(treasureDrop[buttonSelection.selectedIndex].ItemType == ItemType.Money)
-            {
-                GameController.instance.characterData.gold += treasureCards[buttonSelection.selectedIndex].gold;
-            }
-            else
-            {
-                //how items are handeled
-                //TODO: Figure out how to add/ swap items
-            }
-
-            //this is were you add the treasure to character data
-            finishedWithMenu = true; //prevents double clicking
-            GameController.instance.CloseLootDropMenu();
+        if (treasureDrop[buttonSelection.selectedIndex].ItemType == ItemType.Money)
+        {
+            GameController.instance.characterData.gold += treasureCards[buttonSelection.selectedIndex].gold;
         }
+        else
+        {
+            //how items are handeled
+            //TODO: Figure out how to add/ swap items
+        }
+
+        //this is were you add the treasure to character data
+        finishedWithMenu = true; //prevents double clicking
+        GameController.instance.CloseLootDropMenu();
     }
 }
