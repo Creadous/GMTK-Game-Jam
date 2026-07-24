@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     [SerializeField] private bool paused;
 
+    public CharacterData characterData;
+
     [Header("Canvas")]
     public Transform Canvas;
 

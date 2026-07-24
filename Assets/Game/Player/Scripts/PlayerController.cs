@@ -23,6 +23,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
+        if (movment.hasMoved)
+        {
+            movment.hasMoved = false;
+            GameController.instance.characterData.UpdateCurrentStamina(-1);
+        }
     }
     void HandleMovement()
     {

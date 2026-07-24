@@ -11,6 +11,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
     public Vector2 positionOffset;
 
     private bool isMoving;
+    public bool hasMoved; // this is used by player controller to figure when its finished it movement
     [SerializeField] private Vector2Int gridLocation;
 
     // Update is called once per frame
@@ -93,6 +94,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
 
         transform.position = endPos;
         isMoving = false;
+        hasMoved = true;
     }
     private IEnumerator Rotate(float angle)
     {
