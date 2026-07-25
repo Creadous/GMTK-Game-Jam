@@ -8,6 +8,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
     [SerializeField] private float moveDistance = 5f;
     [SerializeField] private float moveTime = 0.15f;
     [SerializeField] private float rotationTime = 0.15f;
+    [SerializeField] private float movementDelay = 0.1f;
 
     public Vector2 positionOffset;
 
@@ -15,11 +16,6 @@ public class DungeonCrawlerMovment : MonoBehaviour
     public bool hasMoved; // this is used by player controller to figure when its finished it movement
     [SerializeField] public Vector2Int gridLocation;
 
-    // Update is called once per frame
-    public void Start()
-    {
-        
-    }
     public void FixedUpdate()
     {
         UpdateGridLocation(); // not great place to put this but it for debuging
@@ -70,7 +66,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
 
         Vector2Int gridPosition = new Vector2Int(Mathf.RoundToInt((endPos.x + positionOffset.x) / moveDistance), Mathf.RoundToInt((endPos.z + positionOffset.y) / moveDistance));
 
-        if (DungeonManager.instance.currentRoom.GetTile(gridPosition.x, gridPosition.y).type == TileType.Empty)
+        if (gridPosition.x <0 || gridPosition.y  <0 || DungeonManager.instance.currentRoom.GetTile(gridPosition.x, gridPosition.y).type == TileType.Empty)
         {
             return false;
         }
@@ -96,6 +92,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
         }
 
         transform.position = endPos;
+        yield return new WaitForSeconds(movementDelay);
         isMoving = false;
         hasMoved = true;
     }
@@ -118,6 +115,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
         }
 
         transform.rotation = endRot;
+        yield return new WaitForSeconds(movementDelay);
         isMoving = false;
     }
 
