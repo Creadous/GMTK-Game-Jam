@@ -12,6 +12,7 @@ public class CombatActionCollider : MonoBehaviour
     public Rigidbody rb;
     public bool isBullet;
     public float bulletSpeed;
+    public GameObject impactDeathVFX;
 
     [Header("debug")]
     public bool disableOnHit = false;
@@ -59,6 +60,12 @@ public class CombatActionCollider : MonoBehaviour
     }
     public void DestoryButllet()
     {
+        if(impactDeathVFX != null)
+        {
+            var vfxGameObject = Instantiate(impactDeathVFX, this.transform);
+            vfxGameObject.transform.parent = null;
+
+        }
         this.gameObject.SetActive(false);
         GameObject.Destroy(this.gameObject);
     }

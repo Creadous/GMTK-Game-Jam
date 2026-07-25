@@ -122,6 +122,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2548289569361432854, guid: c1c7742e0da139f42945c3f31afb71fd, type: 3}
+      propertyPath: impactDeathVFX
+      value: 
+      objectReference: {fileID: 130848, guid: d16221e794fe16e4e8994a7f8c770561, type: 3}
     - target: {fileID: 3078403667154836699, guid: c1c7742e0da139f42945c3f31afb71fd, type: 3}
       propertyPath: m_IsActive
       value: 0
