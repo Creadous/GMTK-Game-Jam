@@ -14,8 +14,8 @@ public class PlayerHudController : MonoBehaviour
 
     public void UpdateHud()
     {
-        goldText.text = GameController.instance.characterData.gold.ToString();
-        staminaBar.UpdateFillBar(GameController.instance.characterData.combatStats.GetCurrentStamina(), GameController.instance.characterData.combatStats.totalStamina);
-        mpBar.UpdateFillBar(GameController.instance.characterData.combatStats.GetCurrentMagic(), GameController.instance.characterData.combatStats.totalMagic);
+        goldText.text = PlayerController.instance.gold.ToString();
+        staminaBar.UpdateFillBar(PlayerController.instance.combatUnit.combatStats.GetCurrentStamina(), PlayerController.instance.combatUnit.combatStats.totalStamina);
+        mpBar.UpdateFillBar(PlayerController.instance.combatUnit.combatStats.GetCurrentMagic(), PlayerController.instance.combatUnit.combatStats.totalMagic);
     }
 }

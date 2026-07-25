@@ -47,7 +47,7 @@ public class TitleScreenController : MonoBehaviour
         {
             case 0:
                 //load game screen
-                GameController.instance.characterData.ResetStats();
+                //PlayerController.instance.combatUnit.ResetStats(); // player controller doesnt continue to title screne
                 SceneManagerController.instance.LaunchScene(GameScene, PortalKey.None, SceneTransitionType.fade);
                 state = TitleScreenState.LoadingGame;
                 break;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DungeonCrawlerMovment : MonoBehaviour
 {
+    public Vector2Int facingDirection = Vector2Int.up;
     [SerializeField] private float moveDistance = 5f;
     [SerializeField] private float moveTime = 0.15f;
     [SerializeField] private float rotationTime = 0.15f;
@@ -12,7 +13,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
 
     private bool isMoving;
     public bool hasMoved; // this is used by player controller to figure when its finished it movement
-    [SerializeField] private Vector2Int gridLocation;
+    [SerializeField] public Vector2Int gridLocation;
 
     // Update is called once per frame
     public void Start()
@@ -75,9 +76,11 @@ public class DungeonCrawlerMovment : MonoBehaviour
         }
         return true;
     }
-    private IEnumerator Move(Vector3 direction)
+    public IEnumerator Move(Vector3 direction)
     {
         isMoving = true;
+
+        UpdateFacingDirection(direction);
 
         Vector3 startPos = transform.position;
         Vector3 endPos = startPos + direction * moveDistance;
@@ -96,6 +99,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
         isMoving = false;
         hasMoved = true;
     }
+
     private IEnumerator Rotate(float angle)
     {
         isMoving = true;
@@ -116,4 +120,83 @@ public class DungeonCrawlerMovment : MonoBehaviour
         transform.rotation = endRot;
         isMoving = false;
     }
+
+    #region helpers
+    public Vector3 GridDirectionToWorld(Vector2Int direction)
+    {
+        if (direction.x > 0)
+            return Vector3.right;
+
+        if (direction.x < 0)
+            return Vector3.left;
+
+        if (direction.y > 0)
+            return Vector3.forward;
+
+        if (direction.y < 0)
+            return Vector3.back;
+
+        return Vector3.zero;
+    }
+    public void FaceDirection(Vector3 direction)
+    {
+        if (direction == Vector3.zero)
+            return;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        transform.rotation = targetRotation;
+    }
+
+    public Vector3 GetFacingWorldPosition()
+    {
+        Vector2Int attackGridPosition = gridLocation + facingDirection;
+
+        return new Vector3(
+            attackGridPosition.x * moveDistance,
+            transform.position.y,
+            attackGridPosition.y * moveDistance
+        );
+    }
+    private void UpdateFacingDirection(Vector3 direction)
+    {
+        if (direction == Vector3.forward)
+        {
+            facingDirection = Vector2Int.up;
+        }
+        else if (direction == Vector3.back)
+        {
+            facingDirection = Vector2Int.down;
+        }
+        else if (direction == Vector3.right)
+        {
+            facingDirection = Vector2Int.right;
+        }
+        else if (direction == Vector3.left)
+        {
+            facingDirection = Vector2Int.left;
+        }
+    }
+
+    public Vector2Int GetNextMove(Vector2Int enemyPos, Vector2Int playerPos)
+    {
+        Vector2Int nextPosition = enemyPos;
+
+        int xDifference = playerPos.x - enemyPos.x;
+        int yDifference = playerPos.y - enemyPos.y;
+
+        // Move horizontally first
+        if (xDifference != 0)
+        {
+            nextPosition.x += xDifference > 0 ? 1 : -1;
+        }
+        // Then move vertically
+        else if (yDifference != 0)
+        {
+            nextPosition.y += yDifference > 0 ? 1 : -1;
+        }
+
+        return nextPosition;
+    }
+    #endregion
 }

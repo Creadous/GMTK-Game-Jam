@@ -156,7 +156,7 @@ public class DungeonRoom : MonoBehaviour
                 {
                     //Genertate floor tile
                     GameObject DungeonTileObject = Instantiate(DungeonTilePrefab, position + Vector3.right * 0.5f, Quaternion.Euler(0, 90, 0),containerForDungeonTiles.transform);
-                    DungeonTileObject.GetComponent<DungeonTile>().Setup(true, tile.walls.north, tile.walls.south, tile.walls.east, tile.walls.west);
+                    DungeonTileObject.GetComponent<DungeonTile>().Setup(new Vector2Int(x,y), true, tile.walls.north, tile.walls.south, tile.walls.east, tile.walls.west);
                 }
 
                 //spawnDoor

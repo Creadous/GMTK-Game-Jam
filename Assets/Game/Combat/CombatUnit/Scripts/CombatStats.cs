@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class CombatStats
 {
+    public string name;
     [SerializeField] private int currentStamina;
     public int totalStamina;
     [SerializeField] private int currentMagic;

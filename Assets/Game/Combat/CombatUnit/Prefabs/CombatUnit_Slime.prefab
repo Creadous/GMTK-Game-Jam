@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6568226309481110409
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.name
+      value: Green Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.defence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.totalMagic
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.currentMagic
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.totalStamina
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.attackRange.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.attackRange.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.currentStamina
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.inventory.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: combatStats.inventory.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8241ad550a750af49badd4ebb201a534, type: 2}
+    - target: {fileID: 1507724253897867075, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507724253897867075, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371602296226238394, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: startingState
+      value: 
+      objectReference: {fileID: 11400000, guid: d3d78bc95bb97c54e9091a5ef2536bfb, type: 2}
+    - target: {fileID: 4371602296226238394, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: maxSpotDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030789747271550752, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a3beea109ef08814898261b64dcda4ce, type: 2}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847476821748212388, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6376929219675995255, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_Name
+      value: CombatUnit_Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002726344546704436, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002726344546704436, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002726344546704436, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002726344546704436, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279829329275236575, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 95446077303724d0f8d266b1d11f6282, type: 3}
+    - target: {fileID: 7279829329275236575, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279829329275236575, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279829329275236575, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279829329275236575, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3070a142fbe11114987b26c820185666, type: 3}

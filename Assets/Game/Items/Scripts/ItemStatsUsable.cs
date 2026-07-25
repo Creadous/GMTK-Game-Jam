@@ -4,7 +4,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Game/Item/Useable")]
 public class ItemStatsUsable : ItemStatsBase
 {
+    public CombatActionLogicBase combatLogic;
     public float useCoolDown;
-    public int amountOfUsesBeforeDestoryed;
-    public GameObject actionVFX;
+    public int power;
+    public bool oneTimeUse;
+    public GameObject VFX;
 }

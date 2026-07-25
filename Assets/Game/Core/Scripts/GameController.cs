@@ -7,6 +7,10 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     [SerializeField] private bool paused;
 
+    [Header("ShopMenu")]
+    public GameObject mainMenuPrefab;
+    private MainMenuController mainMenuController;
+
     [Header("GameOverScreen")]
     public GameObject gameOverScreenPrefab;
     private GameOverMenuController gameOverController;
@@ -25,10 +29,6 @@ public class GameController : MonoBehaviour
 
     [Header("Canvas")]
     public Transform Canvas;
-
-    [Space]
-
-    public CharacterData characterData;
 
     private void Awake()
     {
@@ -68,7 +68,21 @@ public class GameController : MonoBehaviour
             //SaveGame();
         }
     }
+    #region main menu
+    public void LaunchMainMenu()
+    {
+        PauseGame(true);
+        GameObject mainmenuObject = Instantiate(mainMenuPrefab, Canvas);
+        mainMenuController = mainmenuObject.GetComponent<MainMenuController>();
+    }
+    public void CloseMainMenu()
+    {
+        UnPauseGame();
+        GameObject.Destroy(mainMenuController.gameObject);
+    }
+    #endregion
 
+    #region treasure
     public void OpenLootDropMenu(List<ItemStatsBase> loot, Vector2Int goldRange) 
     {
         PauseGame(true);
@@ -81,7 +95,9 @@ public class GameController : MonoBehaviour
         Destroy(lootDropMenuController.gameObject);
         UnPauseGame();
     }
+    #endregion
 
+    #region Dialogue
     public void LaunchDialogueSystem(Dialogue dialogue, InteractableObject_NPC talker)
     {
         PauseGame(false);
@@ -94,6 +110,9 @@ public class GameController : MonoBehaviour
         GameObject.Destroy(dialogueSystem.gameObject);
         UnPauseGame();
     }
+    #endregion
+
+    #region shop
     public void LaunchShopMenu(InteractableObject_NPC talker)
     {
         var menuObject = Instantiate(shopMenuPrefab, Canvas);
@@ -105,4 +124,5 @@ public class GameController : MonoBehaviour
         dialogueSystem.NextNode();
         GameObject.Destroy(shopmenu.gameObject);
     }
+    #endregion
 }

@@ -57,7 +57,7 @@ public class LootDropMenuController : MonoBehaviour
 
         if (treasureDrop[buttonSelection.selectedIndex].ItemType == ItemType.Money)
         {
-            GameController.instance.characterData.gold += treasureCards[buttonSelection.selectedIndex].gold;
+            PlayerController.instance.gold += treasureCards[buttonSelection.selectedIndex].gold;
         }
         else
         {

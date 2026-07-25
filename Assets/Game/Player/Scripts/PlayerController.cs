@@ -5,13 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
-    private DungeonCrawlerMovment movment;
+    public DungeonCrawlerMovment movment;
     private InteractablePlayerController interactablePlayer;
+    [HideInInspector] public CombatUnit combatUnit;
+
+    public int gold;
     private void Awake()
     {
         instance = this;
         movment = GetComponent<DungeonCrawlerMovment>();
         interactablePlayer = GetComponent<InteractablePlayerController>();
+        combatUnit = GetComponent<CombatUnit>();
     }
     // Start is called before the first frame update
     void Start()
@@ -30,10 +34,18 @@ public class PlayerController : MonoBehaviour
         if (movment.hasMoved)
         {
             movment.hasMoved = false;
-            GameController.instance.characterData.combatStats.UpdateCurrentStamina(-1);
+            combatUnit.combatStats.UpdateCurrentStamina(-1);
         }
 
         CheckStamina();
+
+        if(InputManager.instance.cancel == true)
+        {
+            InputManager.instance.cancel = false;
+            GameController.instance.LaunchMainMenu();
+
+        }
+
     }
     void HandleMovement()
     {
@@ -72,7 +84,7 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckStamina()
     {
-        if( GameController.instance.characterData.combatStats.GetCurrentStamina() == 0)
+        if( combatUnit.combatStats.GetCurrentStamina() == 0)
         {
             GameController.instance.LaunchGameOverScreen();
         }

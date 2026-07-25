@@ -69,8 +69,8 @@
     <Compile Include="Assets\_3rdParty\Layer Lab\Scripts\PanelControl.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonManager.cs" />
     <Compile Include="Assets\Audio\Scripts\AudioController.cs" />
-    <Compile Include="Assets\Game\Combat\Scripts\PlayerCombatActionButtons.cs" />
-    <Compile Include="Assets\Game\Combat\Scripts\CombatUnit.cs" />
+    <Compile Include="Assets\Game\Combat\UI\PlayerCombatActionButtons.cs" />
+    <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatUnit.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\Billboard.cs" />
     <Compile Include="Assets\Audio\Scripts\GameAudioSoundTrack.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\KeyBoardScrollViewLogic.cs" />
@@ -94,8 +94,8 @@
     <Compile Include="Assets\_3rdParty\VFX\Epic Toon FX\Scripts\ETFXRotation.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\FillBar.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\ButtonSelectionBase.cs" />
-    <Compile Include="Assets\Game\Combat\Scripts\PlayerCombatActionController.cs" />
-    <Compile Include="Assets\Game\Combat\Scripts\CombatStats.cs" />
+    <Compile Include="Assets\Game\Combat\UI\PlayerCombatActionController.cs" />
+    <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatStats.cs" />
     <Compile Include="Assets\Audio\Scripts\SoundEffectsNode.cs" />
     <Compile Include="Assets\Game\Player\Scripts\DungeonCrawlerMovment.cs" />
     <Compile Include="Assets\Inputmanager\CharacterInput.cs" />
@@ -125,6 +125,16 @@
     <Compile Include="Assets\Game\MiniGame\Scripts\MeleeController.cs" />
     <Compile Include="Assets\Game\DialogueSystem\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Game\UI\Scripts\ShopMenuController.cs" />
+    <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionLogicBase.cs" />
+    <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionLogicTileAction.cs" />
+    <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionLogicBulletAction.cs" />
+    <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionCollider.cs" />
+    <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionData.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\MainMenuController.cs" />
+    <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIController.cs" />
+    <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIState.cs" />
+    <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAICondition.cs" />
+    <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
