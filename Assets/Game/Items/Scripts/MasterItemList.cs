@@ -31,6 +31,23 @@ public class MasterItemList : MonoBehaviour
         AddToListToDictionary(UseableItem);
         AddToListToDictionary(Weapons);
     }
+
+    public List<ItemStatsBase> GetRandomItems(int count)
+    {
+        List<ItemStatsBase> allItems = new List<ItemStatsBase>(ItemLookUpTable.Values);
+        allItems.RemoveAll(item => item.itemID == "fist01");
+
+        List<ItemStatsBase> result = new List<ItemStatsBase>();
+
+        for (int i = 0; i < count; i++)
+        {
+            int randomIndex = Random.Range(0, allItems.Count);
+            result.Add(allItems[randomIndex]);
+            allItems.RemoveAt(randomIndex);
+        }
+
+        return result;
+    }
     private void AddToListToDictionary(List<ItemStatsBase> ItemsList)
     {
         for (int i = 0; i < ItemsList.Count; i++)
@@ -52,4 +69,6 @@ public class MasterItemList : MonoBehaviour
             ItemLookUpTable[ItemsList[i].itemID] = ItemsList[i];
         }
     }
+
+
 }

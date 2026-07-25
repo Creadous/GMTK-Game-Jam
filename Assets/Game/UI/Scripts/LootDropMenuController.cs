@@ -54,19 +54,18 @@ public class LootDropMenuController : MonoBehaviour
     }
     public void LootDropMenuController_SelectionAcceptedCallback()
     {
-
         if (treasureDrop[buttonSelection.selectedIndex].ItemType == ItemType.Money)
         {
             PlayerController.instance.gold += treasureCards[buttonSelection.selectedIndex].gold;
+            finishedWithMenu = true;
+            GameController.instance.CloseLootDropMenu();
         }
         else
         {
-            //how items are handeled
-            //TODO: Figure out how to add/ swap items
+            ItemStatsBase chosenItem = treasureDrop[buttonSelection.selectedIndex];
+            finishedWithMenu = true;
+            GameController.instance.CloseLootDropMenu();
+            GameController.instance.OpenItemSwapMenu(chosenItem);
         }
-
-        //this is were you add the treasure to character data
-        finishedWithMenu = true; //prevents double clicking
-        GameController.instance.CloseLootDropMenu();
     }
 }

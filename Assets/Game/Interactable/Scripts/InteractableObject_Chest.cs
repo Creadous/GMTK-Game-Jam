@@ -9,7 +9,6 @@ public class InteractableObject_Chest : InteractableObject
 
     [Header("Loot")]
     public Vector2Int goldRange;
-    public List<ItemStatsBase> ItemDrops;
 
     public void Awake()
     {
@@ -28,7 +27,7 @@ public class InteractableObject_Chest : InteractableObject
         director.Play();
         isOpened = true;
         //pop up item second
-        GameController.instance.OpenLootDropMenu(ItemDrops, goldRange);
+        GameController.instance.OpenLootDropMenu(goldRange);
         return false;
     }
 }

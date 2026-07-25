@@ -5,15 +5,23 @@ using UnityEngine;
 public class PlayerCombatActionController : MonoBehaviour
 {
     public List<PlayerCombatActionButtons> playerActionButtons;
+    public static PlayerCombatActionController instance;
     // Start is called before the first frame update
     void Start()
     {
         UpdateActionButtons();
     }
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (GameController.IsGamePaused()) return;
+
         if (InputManager.instance.combat01)
         {
             InputManager.instance.combat01 = false;

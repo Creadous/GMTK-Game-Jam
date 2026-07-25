@@ -30,6 +30,10 @@ public class GameController : MonoBehaviour
     [Header("Canvas")]
     public Transform Canvas;
 
+    [Header("ItemSwapMenu")]
+    public GameObject itemSwapMenuPrefab;
+    private ItemSwapMenuController itemSwapMenuController;
+
     private void Awake()
     {
         if (instance == null)
@@ -50,6 +54,7 @@ public class GameController : MonoBehaviour
     public static void PauseGame(bool isGameplayTimerPaused)
     {
         instance.paused = true;
+        //Debug.Log("Paused set on GameController instance: " + instance.GetInstanceID());
     }
     public static void UnPauseGame()
     {
@@ -83,12 +88,13 @@ public class GameController : MonoBehaviour
     #endregion
 
     #region treasure
-    public void OpenLootDropMenu(List<ItemStatsBase> loot, Vector2Int goldRange) 
+    public void OpenLootDropMenu(Vector2Int goldRange)
     {
         PauseGame(true);
-        var menuObject =Instantiate(lootMenuPrefab, Canvas);
+        var loot = MasterItemList.instance.GetRandomItems(3);
+        var menuObject = Instantiate(lootMenuPrefab, Canvas);
         lootDropMenuController = menuObject.GetComponent<LootDropMenuController>();
-        lootDropMenuController.SetUp(loot,goldRange);
+        lootDropMenuController.SetUp(loot, goldRange);
     }
     public void CloseLootDropMenu()
     {
@@ -125,4 +131,20 @@ public class GameController : MonoBehaviour
         GameObject.Destroy(shopmenu.gameObject);
     }
     #endregion
+
+    public void OpenItemSwapMenu(ItemStatsBase newItem)
+    {
+        Debug.Log("OpenItemSwapMenu called");
+        PauseGame(true);
+        var menuObject = Instantiate(itemSwapMenuPrefab, Canvas);
+        itemSwapMenuController = menuObject.GetComponent<ItemSwapMenuController>();
+        Debug.Log("Got controller: " + (itemSwapMenuController != null));
+        itemSwapMenuController.SetUp(newItem);
+    }
+
+    public void CloseItemSwapMenu()
+    {
+        Destroy(itemSwapMenuController.gameObject);
+        UnPauseGame();
+    }
 }
