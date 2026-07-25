@@ -28,7 +28,7 @@ public class CombatUnit : MonoBehaviour
     {
         if(combatStats.GetCurrentStamina() == 0)
         {
-            animator.SetTrigger("Death");
+            if(animator != null) animator.SetTrigger("Death");
             IsDead = true;
         }
     }

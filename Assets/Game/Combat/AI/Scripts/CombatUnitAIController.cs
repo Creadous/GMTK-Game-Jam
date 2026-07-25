@@ -19,6 +19,7 @@ public class CombatUnitAIController : MonoBehaviour
     }
     public void FixedUpdate()
     {
+        if (GameController.IsGamePaused()) return;
         if (combatUnit.IsDead) return;
         if (finishedTurn)
         {

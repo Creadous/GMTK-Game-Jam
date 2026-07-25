@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameOverMenuController : MonoBehaviour
 {
+    public string GameScene;
     public ButtonSelectionBase buttonSelection;
     public bool finishedWithMenu = false;
     // Start is called before the first frame update
@@ -24,14 +25,25 @@ public class GameOverMenuController : MonoBehaviour
     {
         if(finishedWithMenu == false)
         {
+            buttonSelection.HandleButtonCycle(InputManager.instance.move.y);
             buttonSelection.HandleButtonInputs();
         }
     }
     private void GameOverMenuController_SelectionAcceptedCallback()
     {
+        switch (buttonSelection.selectedIndex)
+        {
+            case 0:
+                GameObject.DestroyImmediate(this.gameObject);
+                SceneManagerController.instance.LaunchScene(GameScene, PortalKey.None, SceneTransitionType.fade);
+                break;
+            case 1:
+                GameObject.DestroyImmediate(this.gameObject);
+                SceneManagerController.instance.LaunchTitleScene();
+                break;
+        }
         finishedWithMenu = true;
-        GameObject.DestroyImmediate(this.gameObject);
-        SceneManagerController.instance.LaunchTitleScene();
+        
 
     }
 
