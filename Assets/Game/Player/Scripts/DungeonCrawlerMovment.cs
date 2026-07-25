@@ -100,7 +100,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
         hasMoved = true;
     }
 
-    private IEnumerator Rotate(float angle)
+    public IEnumerator Rotate(float angle)
     {
         isMoving = true;
 
@@ -122,42 +122,8 @@ public class DungeonCrawlerMovment : MonoBehaviour
     }
 
     #region helpers
-    public Vector3 GridDirectionToWorld(Vector2Int direction)
-    {
-        if (direction.x > 0)
-            return Vector3.right;
-
-        if (direction.x < 0)
-            return Vector3.left;
-
-        if (direction.y > 0)
-            return Vector3.forward;
-
-        if (direction.y < 0)
-            return Vector3.back;
-
-        return Vector3.zero;
-    }
-    public void FaceDirection(Vector3 direction)
-    {
-        if (direction == Vector3.zero)
-            return;
-
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-
-        transform.rotation = targetRotation;
-    }
-
-    public Vector3 GetFacingWorldPosition()
-    {
-        Vector2Int attackGridPosition = gridLocation + facingDirection;
-
-        return new Vector3(
-            attackGridPosition.x * moveDistance,
-            transform.position.y,
-            attackGridPosition.y * moveDistance
-        );
-    }
+    
+    
     private void UpdateFacingDirection(Vector3 direction)
     {
         if (direction == Vector3.forward)
@@ -178,25 +144,6 @@ public class DungeonCrawlerMovment : MonoBehaviour
         }
     }
 
-    public Vector2Int GetNextMove(Vector2Int enemyPos, Vector2Int playerPos)
-    {
-        Vector2Int nextPosition = enemyPos;
-
-        int xDifference = playerPos.x - enemyPos.x;
-        int yDifference = playerPos.y - enemyPos.y;
-
-        // Move horizontally first
-        if (xDifference != 0)
-        {
-            nextPosition.x += xDifference > 0 ? 1 : -1;
-        }
-        // Then move vertically
-        else if (yDifference != 0)
-        {
-            nextPosition.y += yDifference > 0 ? 1 : -1;
-        }
-
-        return nextPosition;
-    }
+    
     #endregion
 }

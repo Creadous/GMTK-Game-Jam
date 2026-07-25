@@ -42,6 +42,18 @@ public class CombatUnitAIAction : ScriptableObject
     }
     public IEnumerator Attack(CombatUnitAIController unitAIController)
     {
+        Vector3 direction = unitAIController.Target.transform.position - unitAIController.gameObject.transform.position;
+
+        // Keep rotation only on the Y axis
+        direction.y = 0;
+
+        if (direction != Vector3.zero)
+        {
+            unitAIController.gameObject.transform.rotation = Quaternion.LookRotation(direction);
+        }
+
+       
+
         unitAIController.combatUnit.PlayAttackAnimation();
 
         var weaponStats = (ItemStatsWeapon)unitAIController.combatUnit.combatStats.inventory[0]; //first inventory is alwasy weapon
@@ -61,22 +73,25 @@ public class CombatUnitAIAction : ScriptableObject
         Vector2Int enemyPos = unitAIController.combatUnit.crawlerMovment.gridLocation;
         Vector2Int playerPos = PlayerController.instance.movment.gridLocation;
 
-        Vector2Int nextPosition = unitAIController.combatUnit.crawlerMovment.GetNextMove(enemyPos, playerPos);
-
-
-        Vector2Int difference = nextPosition - enemyPos;
-
+        Vector2Int difference = playerPos - enemyPos;
         Vector3 direction = Vector3.zero;
 
         if (difference.x > 0)
+        {
             direction = Vector3.right;
+        }
         else if (difference.x < 0)
+        {
             direction = Vector3.left;
+        }
         else if (difference.y > 0)
+        {
             direction = Vector3.forward;
-        else
+        }
+        else if (difference.y < 0)
+        {
             direction = Vector3.back;
-
+        }
 
         yield return unitAIController.combatUnit.crawlerMovment.Move(direction);
         yield return null;

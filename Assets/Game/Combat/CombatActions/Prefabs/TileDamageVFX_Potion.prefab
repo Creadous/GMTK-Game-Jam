@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6111125821807048864}
   - component: {fileID: 4106909782386302973}
   - component: {fileID: 2553912490984324759}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: TileDamageVFX_Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,6 +53,7 @@ MonoBehaviour:
   director: {fileID: 4106909782386302973}
   disableDestory: 0
   power: 0
+  disableOnHit: 0
 --- !u!54 &2590193275896157001
 Rigidbody:
   m_ObjectHideFlags: 0
