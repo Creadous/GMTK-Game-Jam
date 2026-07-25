@@ -2984,6 +2984,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1159317655, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: moveTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159317655, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: rotationTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6801036557125031612, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
       propertyPath: m_Name
       value: PlayerController
@@ -3032,6 +3040,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6801036558250794538, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: combatStats.inventory.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: f1545724211cd5e4088604d8c95f4887, type: 2}
+    - target: {fileID: 6801036558250794538, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: combatStats.inventory.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: bff43bc67d423b7428813614b716c6d6, type: 2}
     - target: {fileID: 6801036558250794546, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
       propertyPath: m_ImpulseDefinition.m_ImpulseDuration
       value: 0.1

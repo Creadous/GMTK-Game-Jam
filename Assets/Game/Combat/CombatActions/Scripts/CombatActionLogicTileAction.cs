@@ -8,7 +8,8 @@ public class CombatActionLogicTileAction : CombatActionLogicBase
     public enum TileActionSpawnLocationType
     {
         Self,
-        Forward
+        Forward,
+        ForwardBullet
     }
     public TileActionSpawnLocationType tileActionSpawnLocationType;
 
@@ -27,37 +28,25 @@ public class CombatActionLogicTileAction : CombatActionLogicBase
                 {
                     var vfxObject = Instantiate(VFX, attacker.gameObject.transform);
                     vfxObject.transform.position += attacker.transform.forward * 4.5f;
-                    /*
-                    Vector3 CenterOffset = new Vector3(2.5f, 0, 2.5f);
-                    vfxObject.transform.position = attacker.crawlerMovment.GetFacingWorldPosition();
-                    vfxObject.transform.position += CenterOffset;
-                    Vector3 attackDirection = new Vector3(
-                        attacker.crawlerMovment.facingDirection.x,
-                        0,
-                        attacker.crawlerMovment.facingDirection.y
-                    );
-
-                    vfxObject.transform.forward = attackDirection;
-                    */
 
                     var combatActionController = vfxObject.GetComponent<CombatActionCollider>();
                     combatActionController.power = data.power;
                     combatActionController.PlayAction();
-                    /*
-                    var vfxObject = Instantiate(VFX,attacker.gameObject.transform);
-                    //vfxObject.transform.position += attacker.transform.forward * 4.5f;// new Vector3(0, 0, 4.5f); //should put it in the next tile
-
-                    Vector3 attackDirection = new Vector3(attacker.crawlerMovment.facingDirection.x,0,attacker.crawlerMovment.facingDirection.y);
-                    vfxObject.transform.position += attackDirection * 4.5f;
-                    vfxObject.transform.forward = attackDirection;
+                    
+                }
+                break;
+            case TileActionSpawnLocationType.ForwardBullet:
+                {
+                    var vfxObject = Instantiate(VFX, attacker.gameObject.transform);
+                    vfxObject.transform.parent = null; //deattach from parent and be free 
+                    vfxObject.transform.position += attacker.transform.forward * 4.5f;
 
                     var combatActionController = vfxObject.GetComponent<CombatActionCollider>();
                     combatActionController.power = data.power;
-                    combatActionController.PlayAction(); //play animation
+                    combatActionController.PlayAction();
 
-                    //logic is handle when it hits
-                    */
                 }
+                break;
                 break;
             case TileActionSpawnLocationType.Self:
                 {

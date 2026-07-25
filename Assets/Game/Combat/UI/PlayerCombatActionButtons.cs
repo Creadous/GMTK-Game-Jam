@@ -18,6 +18,10 @@ public class PlayerCombatActionButtons : MonoBehaviour
 
     public bool playMiniGameFirst = false;
     public int basePower = 0;
+    private bool hasMagicCost;
+    private int magicCost;
+
+
     public void SetUp(ItemStatsBase equipment)
     {
         isDisabled = false;
@@ -27,11 +31,21 @@ public class PlayerCombatActionButtons : MonoBehaviour
         switch (equipment.ItemType)
         {
             case ItemType.Weapon:
-                maxCoolDown = ((ItemStatsWeapon)equipment).useCoolDown;
-                combatActionLogic = ((ItemStatsWeapon)equipment).combatLogic;
-                combatVFX = ((ItemStatsWeapon)equipment).VFX;
+                ItemStatsWeapon weaponData = ((ItemStatsWeapon)equipment);
+
+                maxCoolDown = weaponData.useCoolDown;
+                combatActionLogic = weaponData.combatLogic;
+                combatVFX = weaponData.VFX;
                 playMiniGameFirst = true;
-                basePower = Random.Range(((ItemStatsWeapon)equipment).damageRolls.x, ((ItemStatsWeapon)equipment).damageRolls.y);
+                basePower = Random.Range(weaponData.damageRolls.x, weaponData.damageRolls.y);
+
+                //cost logic
+                if (weaponData.magiccost != 0)
+                {
+                    hasMagicCost = true;
+                    magicCost = weaponData.magiccost;
+                }
+
                 break;
             case ItemType.UseableItem:
                 maxCoolDown = ((ItemStatsUsable)equipment).useCoolDown;
@@ -58,6 +72,19 @@ public class PlayerCombatActionButtons : MonoBehaviour
     {
         if (isDisabled) return;
         if (coolDownCount != 0) return;
+
+        if (hasMagicCost)
+        {
+            if (PlayerController.instance.combatUnit.combatStats.GetCurrentMagic() >= magicCost)
+            {
+                PlayerController.instance.combatUnit.combatStats.UpdateCurrentMagic(magicCost * -1);
+            }
+            else
+            {
+                return;
+            }
+        }
+
         coolDownCount = maxCoolDown;
 
         //this is were you figure out what the action does.

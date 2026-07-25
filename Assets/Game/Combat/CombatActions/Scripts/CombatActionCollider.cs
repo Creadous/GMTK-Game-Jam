@@ -8,13 +8,26 @@ public class CombatActionCollider : MonoBehaviour
     public PlayableDirector director;
     public int power;
 
+    [Header("Bullet")]
+    public Rigidbody rb;
+    public bool isBullet;
+    public float bulletSpeed;
+
     [Header("debug")]
     public bool disableOnHit = false;
     public bool disableDestory; // debug
     public void PlayAction()
     {
+        
         hitSomething = false;
-        director.Play();
+        if (isBullet == false)
+        {
+            director.Play();
+        }
+        else
+        {
+            rb.AddForce(this.transform.forward * bulletSpeed, ForceMode.Impulse);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -32,8 +45,22 @@ public class CombatActionCollider : MonoBehaviour
                 }
                 hitSomething = true;
 
+                if (isBullet)
+                {
+                    DestoryButllet();
+                }
+            }
+            else if(isBullet && combatUnit == null)
+            {
+                //hit wall
+                DestoryButllet();
             }
         }
+    }
+    public void DestoryButllet()
+    {
+        this.gameObject.SetActive(false);
+        GameObject.Destroy(this.gameObject);
     }
     public void AnimationFinished()
     {

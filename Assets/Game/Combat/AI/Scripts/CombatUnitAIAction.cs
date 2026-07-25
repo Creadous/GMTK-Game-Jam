@@ -92,7 +92,7 @@ public class CombatUnitAIAction : ScriptableObject
         {
             direction = Vector3.back;
         }
-
+        //if(unitAIController.combatUnit.crawlerMovment.CanMove(transform.forward))
         yield return unitAIController.combatUnit.crawlerMovment.Move(direction);
         yield return null;
     }
