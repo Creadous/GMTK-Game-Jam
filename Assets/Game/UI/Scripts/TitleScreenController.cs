@@ -9,6 +9,7 @@ public class TitleScreenController : MonoBehaviour
         Idle,
         LoadingGame,
         Options,
+        Controls
     }
 
     public TitleScreenState state;
@@ -16,7 +17,7 @@ public class TitleScreenController : MonoBehaviour
     public ButtonSelectionBase titleMenu;
     public string GameScene;
     // Start is called before the first frame update
-
+    public GameObject controlMenu;
     public void Awake()
     {
         titleMenu.SelectionAcceptedCallback.AddListener(() => TitleMenu_SelectionAcceptedCallback());
@@ -39,6 +40,14 @@ public class TitleScreenController : MonoBehaviour
                 titleMenu.HandleButtonCycle(InputManager.instance.move.y);
                 titleMenu.HandleButtonInputs();
                 break;
+            case TitleScreenState.Controls:
+                if(InputManager.instance.AcceptInputRequested() || InputManager.instance.CanceledInputRequested())
+                {
+                    controlMenu.SetActive(false);
+                    titleMenu.gameObject.SetActive(true);
+                    state = TitleScreenState.Idle;
+                }
+                break;
         }
     }
     public void TitleMenu_SelectionAcceptedCallback()
@@ -54,6 +63,11 @@ public class TitleScreenController : MonoBehaviour
             case 1:
                 break;
             case 2:
+                controlMenu.SetActive(true);
+                titleMenu.gameObject.SetActive(false);
+                state = TitleScreenState.Controls;
+                break;
+            case 3:
                 //exit
                 Application.Quit();
                 break;
