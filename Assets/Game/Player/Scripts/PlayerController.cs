@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
     public DungeonCrawlerMovment movment;
     private InteractablePlayerController interactablePlayer;
     [HideInInspector] public CombatUnit combatUnit;
+    [SerializeField] private CinemachineImpulseSource impuseSource; //camera shake
 
     public int gold;
     private void Awake()
@@ -88,5 +89,10 @@ public class PlayerController : MonoBehaviour
         {
             GameController.instance.LaunchGameOverScreen();
         }
+    }
+
+    public void ShakeCamera()
+    {
+        impuseSource.GenerateImpulse();
     }
 }

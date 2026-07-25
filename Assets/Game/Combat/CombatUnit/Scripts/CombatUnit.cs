@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CombatUnit : MonoBehaviour
 {
-    public DungeonCrawlerMovment crawlerMovment;
+    [HideInInspector] public DungeonCrawlerMovment crawlerMovment;
     public Animator animator;
     public CombatStats combatStats;
     public bool IsDead = false;

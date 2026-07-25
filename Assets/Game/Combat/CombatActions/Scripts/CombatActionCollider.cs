@@ -6,11 +6,14 @@ public class CombatActionCollider : MonoBehaviour
 {
     public bool hitSomething = false;
     public PlayableDirector director;
-    public bool disableDestory; // debug
     public int power;
+
+    [Header("debug")]
     public bool disableOnHit = false;
+    public bool disableDestory; // debug
     public void PlayAction()
     {
+        hitSomething = false;
         director.Play();
     }
     private void OnTriggerEnter(Collider other)
@@ -23,6 +26,10 @@ public class CombatActionCollider : MonoBehaviour
             {
                 Debug.Log("Hit " + combatUnit.combatStats.name);
                 combatUnit.GetHit(-power);
+                if (other.gameObject.tag == "Player")
+                {
+                    PlayerController.instance.ShakeCamera();
+                }
                 hitSomething = true;
 
             }
