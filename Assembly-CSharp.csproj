@@ -136,6 +136,10 @@
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIAction.cs" />
     <Compile Include="Assets\Game\Core\Scripts\CharacterData.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\TrapController.cs" />
+    <Compile Include="Assets\Utilites\UI\Scripts\MenuRemoteCallBack.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\VictoryMenuController.cs" />
+    <Compile Include="Assets\AfterDeathAnimationScript.cs" />
+    <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatUnitAnimatorHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

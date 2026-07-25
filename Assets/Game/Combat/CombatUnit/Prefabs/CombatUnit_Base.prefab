@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7279829329275236575}
   - component: {fileID: 906910188457690198}
   - component: {fileID: 5030789747271550752}
+  - component: {fileID: 4496560725642693011}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -119,6 +120,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4496560725642693011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601684081337229108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465c92b68bd06544f96bef9c6f2c5d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatUnit: {fileID: 848775908343483194}
 --- !u!1 &3943489330525140163
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +310,9 @@ MonoBehaviour:
     defence: 0
     inventory: []
   IsDead: 0
+  OnDeathCallBack:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7833039808131233732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +329,7 @@ MonoBehaviour:
   moveDistance: 5
   moveTime: 0.15
   rotationTime: 0.15
+  movementDelay: 0.1
   positionOffset: {x: -2.5, y: -2.5}
   hasMoved: 0
   gridLocation: {x: 0, y: 0}

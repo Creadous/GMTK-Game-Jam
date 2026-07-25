@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CombatUnit : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class CombatUnit : MonoBehaviour
     public Animator animator;
     public CombatStats combatStats;
     public bool IsDead = false;
+    [Header("Events")]
+    public UnityEvent OnDeathCallBack;
     private void Awake()
     {
         crawlerMovment = GetComponent<DungeonCrawlerMovment>();
@@ -30,7 +33,13 @@ public class CombatUnit : MonoBehaviour
         {
             if(animator != null) animator.SetTrigger("Death");
             IsDead = true;
+            
         }
+    }
+    public void FinishWithDeathAnimation() // called form the animator
+    {
+        this.gameObject.SetActive(false);
+        OnDeathCallBack?.Invoke();
     }
     public void GetHit(int power)
     {
