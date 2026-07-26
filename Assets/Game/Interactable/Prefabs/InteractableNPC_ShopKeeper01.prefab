@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3878914450957320440}
   - component: {fileID: 2009399335163885912}
   m_Layer: 7
-  m_Name: InteractableNPC_ShopKeeper
+  m_Name: InteractableNPC_ShopKeeper01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -8,6 +8,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: deathGoldDrop.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: deathGoldDrop.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.name
       value: Green Slime
       objectReference: {fileID: 0}
@@ -57,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4371602296226238394, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: attackRange
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4371602296226238394, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: startingState

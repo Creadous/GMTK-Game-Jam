@@ -30,9 +30,11 @@ public class CombatUnitAIAction : ScriptableObject
 
                 break;
             case AIActionType.Attack:
-                Debug.Log(unitAIController.combatUnit.combatStats.name + " attacking");
-                yield return Attack(unitAIController);
-
+                if(unitAIController.Target != null)
+                {
+                    Debug.Log(unitAIController.combatUnit.combatStats.name + " attacking");
+                    yield return Attack(unitAIController);
+                }
                 break;
             case AIActionType.LookForPlayer:
                 yield return LookForPlayer(unitAIController);

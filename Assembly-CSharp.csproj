@@ -148,6 +148,7 @@
     <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\MonsterLootDrop.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\ScallerUI.cs" />
     <Compile Include="Assets\Game\UI\Scripts\OptionsMenuController.cs" />
+    <Compile Include="Assets\Utilites\TriggerBGMChange.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

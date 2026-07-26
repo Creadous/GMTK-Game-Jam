@@ -888,11 +888,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1561945963412023390, guid: 5f362335f7c362446b1b0e5f16f8ada7, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.8906197
+      value: 0.9687694
       objectReference: {fileID: 0}
     - target: {fileID: 1561945963412023390, guid: 5f362335f7c362446b1b0e5f16f8ada7, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.8942223
+      value: 0.89755565
       objectReference: {fileID: 0}
     - target: {fileID: 1561945963412023390, guid: 5f362335f7c362446b1b0e5f16f8ada7, type: 3}
       propertyPath: m_AnchorMin.x

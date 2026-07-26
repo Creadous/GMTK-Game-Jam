@@ -143,7 +143,7 @@ public class GameAudioManager : MonoBehaviour
             PlaySoundEffectChannelTwo(SoundEffectLookUpTable[key]);
         }
     }
-    private void PlaySoundEffect(AudioClip audioClip)
+    public void PlaySoundEffect(AudioClip audioClip)
     {
         AudioController.Instance.PlaySoundEffect(audioClip);
     }

@@ -8,6 +8,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: deathGoldDrop.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: deathGoldDrop.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.name
       value: Green Slime
       objectReference: {fileID: 0}
@@ -46,7 +54,7 @@ PrefabInstance:
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.inventory.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 8241ad550a750af49badd4ebb201a534, type: 2}
+      objectReference: {fileID: 11400000, guid: b33fdf8e63a43b845b9f89717c0b1a92, type: 2}
     - target: {fileID: 1507724253897867075, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -174,3 +182,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f41f5ed7c0b7842b9b0ee89fb98e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagPrefab: {fileID: 0}

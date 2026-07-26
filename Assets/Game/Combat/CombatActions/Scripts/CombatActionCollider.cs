@@ -13,6 +13,7 @@ public class CombatActionCollider : MonoBehaviour
     public bool isBullet;
     public float bulletSpeed;
     public GameObject impactDeathVFX;
+    public AudioClip shotSound;
 
     [Header("debug")]
     public bool disableOnHit = false;
@@ -27,6 +28,7 @@ public class CombatActionCollider : MonoBehaviour
         }
         else
         {
+            GameAudioManager.instance.PlaySoundEffect(shotSound);
             rb.AddForce(this.transform.forward * bulletSpeed, ForceMode.Impulse);
         }
     }

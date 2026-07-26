@@ -9,6 +9,7 @@ public class CombatUnit : MonoBehaviour
     public Animator animator;
     public CombatStats combatStats;
     public bool IsDead = false;
+    public Vector2Int deathGoldDrop;
     [Header("Events")]
     public UnityEvent OnDeathCallBack;
     private void Awake()
@@ -38,6 +39,11 @@ public class CombatUnit : MonoBehaviour
     }
     public void FinishWithDeathAnimation() // called form the animator
     {
+        if(deathGoldDrop != Vector2Int.zero)
+        {
+            GameAudioManager.instance.PlaySoundEffect("coins");
+            PlayerController.instance.gold += Random.Range(deathGoldDrop.x, deathGoldDrop.y);
+        }
         this.gameObject.SetActive(false);
         OnDeathCallBack?.Invoke();
     }

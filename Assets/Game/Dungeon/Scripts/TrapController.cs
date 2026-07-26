@@ -30,6 +30,7 @@ public class TrapController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameController.IsGamePaused()) return;
         currentTime -= Time.deltaTime;
         if(currentTime < 0)
         {
