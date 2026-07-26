@@ -22,10 +22,13 @@ public class ShopMenuController : MonoBehaviour
     public void SetUp(InteractableObject_NPC talker)
     {
         talkerRef = talker;
+        GameController.UnPauseGame();
     }
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("ShopMenuController - GameController.instance null? " + (GameController.instance == null));
+        if (GameController.IsGamePaused()) return;
         HandleInput();
     }
     void HandleInput()
@@ -39,6 +42,8 @@ public class ShopMenuController : MonoBehaviour
         {
             case 0:
                 //buy
+                var shopItems = MasterItemList.instance.GetRandomItems(3, true);
+                GameController.instance.OpenShoppingMenu(shopItems);
                 break;
             case 1:
                 //sell

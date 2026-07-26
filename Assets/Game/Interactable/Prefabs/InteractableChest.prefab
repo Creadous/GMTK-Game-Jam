@@ -51,11 +51,12 @@ MonoBehaviour:
   interactionDescription: Activate
   interactionSoundEffectKey: 
   isOpened: 0
-  goldRange: {x: 1, y: 10}
-  ItemDrops:
-  - {fileID: 11400000, guid: 611b770bd385fd745aa6fa2542d1ab50, type: 2}
-  - {fileID: 11400000, guid: 611b770bd385fd745aa6fa2542d1ab50, type: 2}
-  - {fileID: 11400000, guid: 611b770bd385fd745aa6fa2542d1ab50, type: 2}
+  goldRange: {x: 3, y: 10}
+  lootPool:
+  - {fileID: 11400000, guid: 50f75eafcc5c0b44d98a45318cf5db8c, type: 2}
+  - {fileID: 11400000, guid: f76d67e22ebeffa4d8c6d3ead82bc920, type: 2}
+  - {fileID: 11400000, guid: f1545724211cd5e4088604d8c95f4887, type: 2}
+  - {fileID: 11400000, guid: 884df9af5996cec4eba5c36fc5a383ed, type: 2}
 --- !u!320 &8417444593617953823
 PlayableDirector:
   m_ObjectHideFlags: 0

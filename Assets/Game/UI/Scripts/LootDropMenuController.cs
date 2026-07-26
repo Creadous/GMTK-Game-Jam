@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 public class LootDropMenuController : MonoBehaviour
 {
     private bool finishedWithMenu = false;
@@ -10,32 +9,24 @@ public class LootDropMenuController : MonoBehaviour
     public List<TreasureCard> treasureCards;
     public ButtonSelectionBase buttonSelection;
 
-    public TMP_Text selectItemText;
-    public TMP_Text selectItemDescription;
     public void Awake()
     {
         buttonSelection.SelectionAcceptedCallback.AddListener(() => LootDropMenuController_SelectionAcceptedCallback());
-        buttonSelection.SelectionChangedCallback.AddListener(() => LootDropMenuController_SelectionChangedCallback());
     }
-
-    
-
     public void SetUp(List<ItemStatsBase> treasure, Vector2Int gold)
     {
         goldRange = gold;
-
         treasureDrop = new List<ItemStatsBase>();
-        for(int i = 0; i< treasure.Count; i++)
+        for (int i = 0; i < treasure.Count; i++)
         {
             treasureDrop.Add(treasure[i]);
         }
-
         for (int i = 0; i < treasure.Count; i++)
         {
-            if(i < treasureCards.Count) //this is only here to stop  a future bug
+            if (i < treasureCards.Count)
             {
                 treasureCards[i].gameObject.SetActive(true);
-                if(treasure[i].ItemType != ItemType.Money)
+                if (treasure[i].ItemType != ItemType.Money)
                 {
                     treasureCards[i].SetUp(treasure[i], 0);
                 }
@@ -46,11 +37,8 @@ public class LootDropMenuController : MonoBehaviour
                 }
             }
         }
-
         buttonSelection.BuildButtonList();
-        UpdateSelectedText();
     }
-
     public void Update()
     {
         if (finishedWithMenu) return;
@@ -59,7 +47,8 @@ public class LootDropMenuController : MonoBehaviour
     }
     public void LootDropMenuController_SelectionAcceptedCallback()
     {
-        if (treasureDrop[buttonSelection.selectedIndex].ItemType == ItemType.Money)
+        ItemStatsBase chosenItem = treasureDrop[buttonSelection.selectedIndex];
+        if (chosenItem.ItemType == ItemType.Money)
         {
             PlayerController.instance.gold += treasureCards[buttonSelection.selectedIndex].gold;
             finishedWithMenu = true;
@@ -67,19 +56,9 @@ public class LootDropMenuController : MonoBehaviour
         }
         else
         {
-            ItemStatsBase chosenItem = treasureDrop[buttonSelection.selectedIndex];
             finishedWithMenu = true;
             GameController.instance.CloseLootDropMenu();
             GameController.instance.OpenInventoryMenu(chosenItem);
         }
-    }
-    private void LootDropMenuController_SelectionChangedCallback()
-    {
-        UpdateSelectedText();
-    }
-    public void UpdateSelectedText()
-    {
-        selectItemText.text = treasureDrop[buttonSelection.selectedIndex].itemName;
-        selectItemDescription.text = treasureDrop[buttonSelection.selectedIndex].itemDescription;
     }
 }

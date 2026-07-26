@@ -9,7 +9,7 @@ public class InteractableObject_Chest : InteractableObject
 
     [Header("Loot")]
     public Vector2Int goldRange;
-
+    public List<ItemStatsBase> lootPool;
     public void Awake()
     {
         director = GetComponent<PlayableDirector>();
@@ -26,8 +26,8 @@ public class InteractableObject_Chest : InteractableObject
     {
         director.Play();
         isOpened = true;
-        //pop up item second
-        GameController.instance.OpenLootDropMenu(goldRange);
+        var loot = MasterItemList.instance.GetRandomItemsFromPool(lootPool, 3);
+        GameController.instance.OpenLootDropMenu(loot, goldRange);
         return false;
     }
 }

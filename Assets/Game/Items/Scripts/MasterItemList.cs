@@ -32,20 +32,43 @@ public class MasterItemList : MonoBehaviour
         AddToListToDictionary(Weapons);
     }
 
-    public List<ItemStatsBase> GetRandomItems(int count)
+    public List<ItemStatsBase> GetRandomItems(int count, bool excludeMoney = false)
     {
         List<ItemStatsBase> allItems = new List<ItemStatsBase>(ItemLookUpTable.Values);
         allItems.RemoveAll(item => item.itemID == "fist01");
+        if (excludeMoney)
+        {
+            allItems.RemoveAll(item => item.ItemType == ItemType.Money);
+        }
+
+
 
         List<ItemStatsBase> result = new List<ItemStatsBase>();
-
         for (int i = 0; i < count; i++)
         {
             int randomIndex = Random.Range(0, allItems.Count);
             result.Add(allItems[randomIndex]);
             allItems.RemoveAt(randomIndex);
         }
+        return result;
+    }
 
+    public List<ItemStatsBase> GetRandomItemsFromPool(List<ItemStatsBase> pool, int count, bool excludeMoney = false)
+    {
+        List<ItemStatsBase> allItems = new List<ItemStatsBase>(pool);
+        allItems.RemoveAll(item => item.itemID == "fist01");
+        if (excludeMoney)
+        {
+            allItems.RemoveAll(item => item.ItemType == ItemType.Money);
+        }
+
+        List<ItemStatsBase> result = new List<ItemStatsBase>();
+        for (int i = 0; i < count && allItems.Count > 0; i++)
+        {
+            int randomIndex = Random.Range(0, allItems.Count);
+            result.Add(allItems[randomIndex]);
+            allItems.RemoveAt(randomIndex);
+        }
         return result;
     }
     private void AddToListToDictionary(List<ItemStatsBase> ItemsList)

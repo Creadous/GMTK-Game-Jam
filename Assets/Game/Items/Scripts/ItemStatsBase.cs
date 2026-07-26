@@ -18,4 +18,5 @@ public class ItemStatsBase : ScriptableObject
     public ItemType ItemType;
     public Sprite itemIcon;
     public int gold;
+    public int shopPrice;
 }

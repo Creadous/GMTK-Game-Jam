@@ -20,6 +20,7 @@ public class PlayerCombatActionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (GameController.IsGamePaused()) return;
 
         if (InputManager.instance.combat01)

@@ -27,6 +27,10 @@ public class GameController : MonoBehaviour
     public GameObject shopMenuPrefab;
     private ShopMenuController shopmenu;
 
+    [Header("ShoppingMenu")]
+    public GameObject shoppingMenuPrefab;
+    private ShoppingMenu shoppingMenuController;
+
     [Header("Canvas")]
     public Transform Canvas;
 
@@ -88,10 +92,9 @@ public class GameController : MonoBehaviour
     #endregion
 
     #region treasure
-    public void OpenLootDropMenu(Vector2Int goldRange)
+    public void OpenLootDropMenu(List<ItemStatsBase> loot, Vector2Int goldRange)
     {
         PauseGame(true);
-        var loot = MasterItemList.instance.GetRandomItems(3);
         var menuObject = Instantiate(lootMenuPrefab, Canvas);
         lootDropMenuController = menuObject.GetComponent<LootDropMenuController>();
         lootDropMenuController.SetUp(loot, goldRange);
@@ -129,6 +132,19 @@ public class GameController : MonoBehaviour
     {
         dialogueSystem.NextNode();
         GameObject.Destroy(shopmenu.gameObject);
+    }
+
+    public void OpenShoppingMenu(List<ItemStatsBase> items)
+    {
+        PauseGame(true);
+        var menuObject = Instantiate(shoppingMenuPrefab, Canvas);
+        shoppingMenuController = menuObject.GetComponent<ShoppingMenu>();
+        shoppingMenuController.SetUp(items);
+    }
+    public void CloseShoppingMenu()
+    {
+        Destroy(shoppingMenuController.gameObject);
+        UnPauseGame();
     }
     #endregion
 
