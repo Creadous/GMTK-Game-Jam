@@ -132,7 +132,7 @@ public class GameController : MonoBehaviour
     }
     #endregion
 
-    public void OpenItemSwapMenu(ItemStatsBase newItem)
+    public void OpenInventoryMenu(ItemStatsBase newItem)
     {
         Debug.Log("OpenItemSwapMenu called");
         PauseGame(true);
@@ -142,7 +142,7 @@ public class GameController : MonoBehaviour
         itemSwapMenuController.SetUp(newItem);
     }
 
-    public void CloseItemSwapMenu()
+    public void CloseInventoryMenu()
     {
         Destroy(itemSwapMenuController.gameObject);
         UnPauseGame();

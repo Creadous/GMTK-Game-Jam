@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class LootDropMenuController : MonoBehaviour
 {
     private bool finishedWithMenu = false;
@@ -10,10 +10,16 @@ public class LootDropMenuController : MonoBehaviour
     public List<TreasureCard> treasureCards;
     public ButtonSelectionBase buttonSelection;
 
+    public TMP_Text selectItemText;
+    public TMP_Text selectItemDescription;
     public void Awake()
     {
         buttonSelection.SelectionAcceptedCallback.AddListener(() => LootDropMenuController_SelectionAcceptedCallback());
+        buttonSelection.SelectionChangedCallback.AddListener(() => LootDropMenuController_SelectionChangedCallback());
     }
+
+    
+
     public void SetUp(List<ItemStatsBase> treasure, Vector2Int gold)
     {
         goldRange = gold;
@@ -42,8 +48,7 @@ public class LootDropMenuController : MonoBehaviour
         }
 
         buttonSelection.BuildButtonList();
-
-
+        UpdateSelectedText();
     }
 
     public void Update()
@@ -65,7 +70,16 @@ public class LootDropMenuController : MonoBehaviour
             ItemStatsBase chosenItem = treasureDrop[buttonSelection.selectedIndex];
             finishedWithMenu = true;
             GameController.instance.CloseLootDropMenu();
-            GameController.instance.OpenItemSwapMenu(chosenItem);
+            GameController.instance.OpenInventoryMenu(chosenItem);
         }
+    }
+    private void LootDropMenuController_SelectionChangedCallback()
+    {
+        UpdateSelectedText();
+    }
+    public void UpdateSelectedText()
+    {
+        selectItemText.text = treasureDrop[buttonSelection.selectedIndex].itemName;
+        selectItemDescription.text = treasureDrop[buttonSelection.selectedIndex].itemDescription;
     }
 }

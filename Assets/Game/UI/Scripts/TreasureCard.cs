@@ -6,7 +6,6 @@ using TMPro;
 public class TreasureCard : MenuButtonBase
 {
     public Image icon;
-    public TMP_Text titleText;
     public TMP_Text descriptionText;
     public int gold;
     
@@ -14,14 +13,19 @@ public class TreasureCard : MenuButtonBase
     {
         icon.sprite = itemStatsBase.itemIcon;
         gold = goldAmount;
-        if(itemStatsBase.ItemType != ItemType.Money)
+        switch (itemStatsBase.ItemType)
         {
-            titleText.text = itemStatsBase.itemName;
+            case ItemType.Money:
+                descriptionText.text = goldAmount.ToString();
+                break;
+            case ItemType.Weapon:
+                descriptionText.text = ((ItemStatsWeapon)itemStatsBase).damageRolls.x.ToString() + " - " + ((ItemStatsWeapon)itemStatsBase).damageRolls.y.ToString();
+                break;
+            case ItemType.UseableItem:
+                descriptionText.text =  ((ItemStatsUsable)itemStatsBase).power.ToString();
+
+                break;
         }
-        else
-        {
-            titleText.text = itemStatsBase.itemName + " " + gold;
-        }
-        descriptionText.text = itemStatsBase.itemDescription;
+        
     }
 }

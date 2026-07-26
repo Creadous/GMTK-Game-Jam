@@ -107,6 +107,7 @@ MonoBehaviour:
   dialogueSystemPrefab: {fileID: 3117290251094595987, guid: 611c761b9d457f64f853b4162e9c5e95, type: 3}
   shopMenuPrefab: {fileID: 3863276337525942044, guid: 5ef2642ff7ebd5b4199f7df081ccee0e, type: 3}
   Canvas: {fileID: 771120517836746541}
+  itemSwapMenuPrefab: {fileID: 0}
 --- !u!114 &1176193005
 MonoBehaviour:
   m_ObjectHideFlags: 0

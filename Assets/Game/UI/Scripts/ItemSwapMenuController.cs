@@ -3,103 +3,157 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ItemSwapMenuController : MonoBehaviour
 {
-    [Header("Slot Displays")]
-    public List<Image> slotIcons;       // 4 icons, one per slot, in order
-    public List<TMP_Text> slotNames;    // 4 name labels, one per slot, in order
-
-    [Header("Confirmation")]
-    public GameObject confirmPanel;
-    public TMP_Text confirmText;
-
-    private ItemStatsBase incomingItem;
-    private int pendingSlotIndex = -1;
-    private bool awaitingConfirmation = false;
-
-    public void SetUp(ItemStatsBase newItem)
+    public enum ItemSwapMenuState 
     {
-        incomingItem = newItem;
-        confirmPanel.SetActive(false);
-        awaitingConfirmation = false;
-        RefreshSlotDisplay();
+        WaitForPlacement,
+        WaitConfirm,
+        FinishedWithMenu
+    }
+    public ItemSwapMenuState menuState;
+    public ButtonSelectionBase buttonSelection;
+    public List<Image> imageSlots;
+    
+    public ItemStatsBase newItemReff;
+
+    public TMP_Text newItemNameText;
+    public Image newItemIcon;
+
+    [Header("ItemInfoUI")]
+    public TMP_Text selectItemText;
+    public TMP_Text selectItemDescription;
+
+    [Header("ConfirmMenu")]
+    public GameObject confirmMenuPrefab;
+    [HideInInspector] public ConfirmHud confirmHud;
+
+    public void Awake()
+    {
+        buttonSelection.SelectionAcceptedCallback.AddListener(() => ItemSwapMenuController_SelectionAcceptedCallback());
+        buttonSelection.SelectionChangedCallback.AddListener(() => ItemSwapMenuController_SelectionChangedCallback());
     }
 
-    private void RefreshSlotDisplay()
+    
+
+    public void Start()
     {
-        var inventory = PlayerController.instance.combatUnit.combatStats.inventory;
-        for (int i = 0; i < slotIcons.Count; i++)
+        buttonSelection.BuildButtonList();
+        UpdateSelectedText();
+    }
+
+    public void SetUp(ItemStatsBase itemStats) 
+    {
+        newItemReff = itemStats;
+        newItemNameText.text = newItemReff.itemName;
+        newItemIcon.sprite = newItemReff.itemIcon;
+        UpdateActionButton();
+    }
+    public void UpdateActionButton()
+    {
+        int index = 0;
+        foreach (Image icon in imageSlots)
         {
-            if (inventory[i] != null)
+            if (PlayerController.instance.combatUnit.combatStats.inventory[index] == null)
             {
-                slotIcons[i].sprite = inventory[i].itemIcon;
-                slotIcons[i].gameObject.SetActive(true);
-                slotNames[i].text = inventory[i].itemName;
+                icon.gameObject.SetActive(false);
             }
             else
             {
-                slotIcons[i].gameObject.SetActive(false);
-                slotNames[i].text = "Empty";
+                icon.gameObject.SetActive(true);
+                icon.sprite = PlayerController.instance.combatUnit.combatStats.inventory[index].itemIcon;
             }
+
+            index++;
         }
     }
-
-    void Update()
+    public void Update()
     {
-
-        if (awaitingConfirmation)
-        {
-            HandleConfirmationInput();
-            return;
-        }
-
-        if (InputManager.instance.combat01) { InputManager.instance.combat01 = false; TrySelectSlot(0); }
-        else if (InputManager.instance.combat02) { InputManager.instance.combat02 = false; TrySelectSlot(1); }
-        else if (InputManager.instance.combat03) { InputManager.instance.combat03 = false; TrySelectSlot(2); }
-        else if (InputManager.instance.combat04) { InputManager.instance.combat04 = false; TrySelectSlot(3); }
+        HandleInput();
     }
-
-    private void TrySelectSlot(int index)
+    public void HandleInput()
     {
-        if (InputManager.instance.combat01) { InputManager.instance.combat01 = false; Debug.Log("Q pressed in swap menu"); TrySelectSlot(0); }
-        var inventory = PlayerController.instance.combatUnit.combatStats.inventory;
-
-        if (inventory[index] == null)
+        switch (menuState)
         {
-            PlaceItem(index);
+            case ItemSwapMenuState.WaitForPlacement:
+                buttonSelection.HandleButtonCycle(InputManager.instance.move.x *-1);
+                buttonSelection.HandleButtonInputs(); 
+                break;
+            case ItemSwapMenuState.WaitConfirm:
+                if (confirmHud.finishedWithMenu)
+                {
+                    if (confirmHud.chooseYes)
+                    {
+                        //replace item;
+                        GameObject.DestroyImmediate(confirmHud.gameObject);
+                        AddItem();
+                        UpdateActionButton();
+                        menuState = ItemSwapMenuState.FinishedWithMenu;
+                        GameController.instance.CloseInventoryMenu();
+                    }
+                    else
+                    {
+                        GameObject.DestroyImmediate(confirmHud.gameObject);
+                        menuState = ItemSwapMenuState.WaitForPlacement;
+                    }
+                }
+                break;
+        }
+    }
+    private void ItemSwapMenuController_SelectionAcceptedCallback()
+    {
+        if (IsSlotFull() == false)
+        {
+            AddItem();
+            UpdateActionButton();
+            menuState = ItemSwapMenuState.FinishedWithMenu;
+            GameController.instance.CloseInventoryMenu();
         }
         else
         {
-            pendingSlotIndex = index;
-            awaitingConfirmation = true;
-            confirmPanel.SetActive(true);
-            confirmText.text = "Swap out " + inventory[index].itemName + " for " + incomingItem.itemName + "? (Q = Yes, X = No)";
+            var confirmObj = Instantiate(confirmMenuPrefab, GameController.instance.Canvas);
+            confirmHud = confirmObj.GetComponent<ConfirmHud>();
+            string oldItem = PlayerController.instance.combatUnit.combatStats.inventory[buttonSelection.selectedIndex].itemName;
+            string newItem = newItemReff.itemName;
+            confirmHud.SetUp("Do you want to swap " + oldItem + " for " + newItem);
+            menuState = ItemSwapMenuState.WaitConfirm;
         }
     }
 
-    private void HandleConfirmationInput()
+    private void AddItem()
     {
-        if (InputManager.instance.combat01) // Q = confirm
+        PlayerController.instance.combatUnit.combatStats.inventory[buttonSelection.selectedIndex] = newItemReff;
+        PlayerCombatActionController.instance.UpdateActionButtons(); // this will foce the buttons to update
+    }
+
+    public bool IsSlotFull()
+    {
+        if (PlayerController.instance.combatUnit.combatStats.inventory[buttonSelection.selectedIndex] != null)
         {
-            InputManager.instance.combat01 = false;
-            PlaceItem(pendingSlotIndex);
+            return true;
         }
-        else if (InputManager.instance.combat04) // X = cancel
+        return false;
+    }
+
+    private void ItemSwapMenuController_SelectionChangedCallback()
+    {
+        UpdateSelectedText();
+    }
+
+    public void UpdateSelectedText()
+    {
+        if(PlayerController.instance.combatUnit.combatStats.inventory[buttonSelection.selectedIndex] != null)
         {
-            InputManager.instance.combat04 = false;
-            confirmPanel.SetActive(false);
-            awaitingConfirmation = false;
-            pendingSlotIndex = -1;
+            selectItemText.text = PlayerController.instance.combatUnit.combatStats.inventory[buttonSelection.selectedIndex].itemName;
+            selectItemDescription.text = PlayerController.instance.combatUnit.combatStats.inventory[buttonSelection.selectedIndex].itemDescription;
+        }
+        else
+        {
+            selectItemText.text = "";
+            selectItemDescription.text = "";
         }
     }
 
-    private void PlaceItem(int index)
-    {
-        PlayerController.instance.combatUnit.combatStats.inventory[index] = incomingItem;
-        PlayerCombatActionController.instance.UpdateActionButtons();
-        confirmPanel.SetActive(false);
-        awaitingConfirmation = false;
-        GameController.instance.CloseItemSwapMenu();
-    }
 }

@@ -51,6 +51,7 @@ public class InteractablePlayerController : MonoBehaviour
     {
         if (InputManager.instance.InteractInputRequested() && aimObject.selected != null)
         {
+            if (aimObject.selected.GetComponent<IInteractable>().AbleToInteractWith() == false) return;
             if (aimObject.selected.GetComponent<IInteractable>().InteractWithObject(this))
             {
                 interactingWithObject = true;
