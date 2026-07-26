@@ -2247,10 +2247,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3481111543584328148, guid: b0961e61058631644873c12d8465ce63, type: 3}
-      propertyPath: itemSwapMenuPrefab
-      value: 
-      objectReference: {fileID: 8030343354436693095, guid: 19e6c7d866b5f824e8e37a945d70a861, type: 3}
     - target: {fileID: 4530867329275371861, guid: b0961e61058631644873c12d8465ce63, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
