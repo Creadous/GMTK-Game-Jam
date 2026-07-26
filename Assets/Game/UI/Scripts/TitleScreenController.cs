@@ -35,15 +35,30 @@ public class TitleScreenController : MonoBehaviour
 
     void Start()
     {
+        videoPlayer.source = VideoSource.Url;
+
+        videoPlayer.url =
+            Application.streamingAssetsPath +
+            "/Video/Path of Ruin Intro Sequence Cut w No Audio.mp4";
+
+        videoPlayer.prepareCompleted += OnVideoPrepared;
+
+        videoPlayer.Prepare();
+
+        videoPlayer.SetDirectAudioMute(0, true);
         videoPlayer.loopPointReached += VideoEnded; //call when its finished
         videoPlayer.started += VideoStarted; //call when its finished
-        videoPlayer.Play();
+       // videoPlayer.Play();
 
         titleMenu.BuildButtonList();
         state = TitleScreenState.VidoePlaying;
         
     }
-
+    void OnVideoPrepared(VideoPlayer vp)
+    {
+        GameAudioManager.instance.PlayTitleScreenBMG();
+        vp.Play();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -102,7 +117,7 @@ public class TitleScreenController : MonoBehaviour
     }
     void VideoStarted(VideoPlayer vp)
     {
-        GameAudioManager.instance.PlayTitleScreenBMG();
+        
     }
     void VideoEnded(VideoPlayer vp)
     {
