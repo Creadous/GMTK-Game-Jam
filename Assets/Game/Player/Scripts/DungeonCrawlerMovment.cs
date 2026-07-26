@@ -16,6 +16,12 @@ public class DungeonCrawlerMovment : MonoBehaviour
     public bool hasMoved; // this is used by player controller to figure when its finished it movement
     [SerializeField] public Vector2Int gridLocation;
 
+    public bool IsPlayer;
+
+    [Header("SoundEffect")]
+    [SerializeField] private List<string> footstepsSoundEffects;
+    private int footstepsSoundEffectsIndex = 0;
+
     public void FixedUpdate()
     {
         UpdateGridLocation(); // not great place to put this but it for debuging
@@ -74,6 +80,7 @@ public class DungeonCrawlerMovment : MonoBehaviour
     }
     public IEnumerator Move(Vector3 direction)
     {
+        PlayFootStep();
         isMoving = true;
 
         UpdateFacingDirection(direction);
@@ -144,4 +151,17 @@ public class DungeonCrawlerMovment : MonoBehaviour
 
     
     #endregion
+
+    public void PlayFootStep()
+    {
+        if (IsPlayer)
+        {
+            GameAudioManager.instance.PlaySoundEffectChannelTwo(footstepsSoundEffects[footstepsSoundEffectsIndex]);
+            footstepsSoundEffectsIndex++;
+            if(footstepsSoundEffectsIndex >= footstepsSoundEffects.Count)
+            {
+                footstepsSoundEffectsIndex = 0;
+            }
+        }
+    }
 }

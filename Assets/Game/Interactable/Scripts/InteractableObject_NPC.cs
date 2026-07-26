@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableObject_NPC : InteractableObject
 {
-    public Dialogue dialogue;
+    [HideInInspector] public Dialogue dialogue;
     private void Awake()
     {
         dialogue = GetComponent<Dialogue>();

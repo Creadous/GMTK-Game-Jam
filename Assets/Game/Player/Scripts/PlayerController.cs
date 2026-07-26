@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (GameController.IsGamePaused() == true) return;
+
         HandleMovement();
 
 

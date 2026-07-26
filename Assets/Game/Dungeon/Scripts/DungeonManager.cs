@@ -33,6 +33,7 @@ public class DungeonManager : MonoBehaviour
 
         PlayerController.instance.SetModelPostion(currentRoom.startingPosition.spawnPoint);
         UpdateBossCountDownUI();
+        GameAudioManager.instance.PlayDungeonTrack();
     }
 
     // Update is called once per frame
@@ -47,10 +48,12 @@ public class DungeonManager : MonoBehaviour
     }
     public IEnumerator RoomTransition(string newRoomType)
     {
+        GameAudioManager.instance.PlaySoundEffect("door_open");
         yield return SceneManagerController.instance.PlayTrantion(SceneTransitionType.fade, false);
         LoadNewRoom(newRoomType);
         yield return new WaitForFixedUpdate();
         yield return SceneManagerController.instance.PlayTrantion(SceneTransitionType.fade, true);
+        GameAudioManager.instance.PlaySoundEffect("door_close");
     }
     private void LoadNewRoom(string newRoomType)
     {

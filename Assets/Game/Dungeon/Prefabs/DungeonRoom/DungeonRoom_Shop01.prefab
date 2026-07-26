@@ -16845,6 +16845,18 @@ PrefabInstance:
       value: Grimly
       objectReference: {fileID: 0}
     - target: {fileID: 2009399335163885912, guid: 7c98b609d941ec04b883d71b4e4c586b, type: 3}
+      propertyPath: dialogue.Array.data[0].audioID
+      value: talk_greeting
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009399335163885912, guid: 7c98b609d941ec04b883d71b4e4c586b, type: 3}
+      propertyPath: dialogue.Array.data[1].audioID
+      value: talk_question01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009399335163885912, guid: 7c98b609d941ec04b883d71b4e4c586b, type: 3}
+      propertyPath: dialogue.Array.data[2].audioID
+      value: talk_goodbye
+      objectReference: {fileID: 0}
+    - target: {fileID: 2009399335163885912, guid: 7c98b609d941ec04b883d71b4e4c586b, type: 3}
       propertyPath: dialogue.Array.data[1].launchMenu
       value: 0
       objectReference: {fileID: 0}

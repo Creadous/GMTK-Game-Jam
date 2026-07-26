@@ -24,6 +24,7 @@ public class InteractableObject_Chest : InteractableObject
     }
     public override bool InteractWithObject(InteractablePlayerController interactablePlayerController)
     {
+        GameAudioManager.instance.PlaySoundEffect("chest_open");
         director.Play();
         isOpened = true;
         var loot = MasterItemList.instance.GetRandomItemsFromPool(lootPool, 3);

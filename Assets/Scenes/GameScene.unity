@@ -248,10 +248,10 @@ RectTransform:
   m_Father: {fileID: 34655675}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.09200001, y: 0.061000004}
-  m_AnchorMax: {x: 0.26900002, y: 0.115}
+  m_AnchorMin: {x: 0.048, y: 0.8653334}
+  m_AnchorMax: {x: 0.2263451, y: 0.9186668}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.0000019073486, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14004115
 MonoBehaviour:
@@ -2065,14 +2065,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3481111543584328148, guid: b0961e61058631644873c12d8465ce63, type: 3}
-      propertyPath: itemSwapMenuPrefab
-      value: 
-      objectReference: {fileID: 8030343354436693095, guid: 19e6c7d866b5f824e8e37a945d70a861, type: 3}
-    - target: {fileID: 3481111543584328148, guid: b0961e61058631644873c12d8465ce63, type: 3}
-      propertyPath: shoppingMenuPrefab
-      value: 
-      objectReference: {fileID: 1748179768351442139, guid: 5f362335f7c362446b1b0e5f16f8ada7, type: 3}
     - target: {fileID: 4530867329275371861, guid: b0961e61058631644873c12d8465ce63, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3064,6 +3056,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1159317655, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: IsPlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159317655, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: footstepsSoundEffects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159317655, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: footstepsSoundEffects.Array.data[0]
+      value: stone_footsteps01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159317655, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: footstepsSoundEffects.Array.data[1]
+      value: stone_footsteps02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1159317655, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
+      propertyPath: footstepsSoundEffects.Array.data[2]
+      value: stone_footsteps03
+      objectReference: {fileID: 0}
     - target: {fileID: 4408315303114536215, guid: f7cbb29556154834a8fce22e55ccdf3c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.5

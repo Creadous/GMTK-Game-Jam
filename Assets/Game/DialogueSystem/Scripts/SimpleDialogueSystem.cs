@@ -35,6 +35,7 @@ public class SimpleDialogueSystem : MonoBehaviour
         dialogueIndex = 0;
         talkerReff = talker;
         StartCoroutine(IntroSequence());
+        GameAudioManager.instance.PlayTownTrack();
         
     }
     public void UpdateDialogueWindow()
@@ -44,13 +45,22 @@ public class SimpleDialogueSystem : MonoBehaviour
             case DialogueNodes.DialogueNodeType.node_Line:
                 talkerName.text = dialogueReff.dialogue[dialogueIndex].talker;
                 dialogueText.text = dialogueReff.dialogue[dialogueIndex].conversation;
+                PlayAudio(dialogueReff.dialogue[dialogueIndex].audioID);
                 break;
             case DialogueNodes.DialogueNodeType.node_UI:
                 GameController.instance.LaunchShopMenu(talkerReff);
+                PlayAudio(dialogueReff.dialogue[dialogueIndex].audioID);
                 break;
             case DialogueNodes.DialogueNodeType.node_End:
                 StartCoroutine(EndSequence());
                 break;
+        }
+    }
+    public void PlayAudio(string audioID)
+    {
+        if(string.IsNullOrWhiteSpace(audioID) == false)
+        {
+            GameAudioManager.instance.PlaySoundEffect(audioID);
         }
     }
     public void Update()
@@ -84,7 +94,7 @@ public class SimpleDialogueSystem : MonoBehaviour
            yield return new WaitForFixedUpdate();
         }
 
-        dialogueText.text = dialogueReff.dialogue[dialogueIndex].conversation;
+        UpdateDialogueWindow();
 
         yield return null;
     }
@@ -97,6 +107,7 @@ public class SimpleDialogueSystem : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         GameController.instance.CloseDialogueSystem();
+        GameAudioManager.instance.PlayDungeonTrack();
         yield return null;
     }
     public void FinisheAnimation()

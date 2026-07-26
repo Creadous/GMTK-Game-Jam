@@ -27,10 +27,6 @@ public class GameController : MonoBehaviour
     public GameObject shopMenuPrefab;
     private ShopMenuController shopmenu;
 
-    [Header("ShoppingMenu")]
-    public GameObject shoppingMenuPrefab;
-    private ShoppingMenu shoppingMenuController;
-
     [Header("Canvas")]
     public Transform Canvas;
 
@@ -80,12 +76,14 @@ public class GameController : MonoBehaviour
     #region main menu
     public void LaunchMainMenu()
     {
+        GameAudioManager.instance.PlaySoundEffect("menu_open");
         PauseGame(true);
         GameObject mainmenuObject = Instantiate(mainMenuPrefab, Canvas);
         mainMenuController = mainmenuObject.GetComponent<MainMenuController>();
     }
     public void CloseMainMenu()
     {
+        GameAudioManager.instance.PlaySoundEffect("menu_close");
         UnPauseGame();
         GameObject.Destroy(mainMenuController.gameObject);
     }
@@ -128,39 +126,10 @@ public class GameController : MonoBehaviour
         shopmenu = menuObject.GetComponent<ShopMenuController>();
         shopmenu.SetUp(talker);
     }
-    public void CloseShopMenu()
-    {
-        dialogueSystem.NextNode();
-        GameObject.Destroy(shopmenu.gameObject);
-    }
-
-    public void OpenShoppingMenu(List<ItemStatsBase> items)
-    {
-        PauseGame(true);
-        var menuObject = Instantiate(shoppingMenuPrefab, Canvas);
-        shoppingMenuController = menuObject.GetComponent<ShoppingMenu>();
-        shoppingMenuController.SetUp(items);
-    }
+    
     public void CloseShoppingMenu()
     {
-        Destroy(shoppingMenuController.gameObject);
-        UnPauseGame();
+        GameObject.Destroy(shopmenu.gameObject);
     }
     #endregion
-
-    public void OpenInventoryMenu(ItemStatsBase newItem)
-    {
-        Debug.Log("OpenItemSwapMenu called");
-        PauseGame(true);
-        var menuObject = Instantiate(itemSwapMenuPrefab, Canvas);
-        itemSwapMenuController = menuObject.GetComponent<ItemSwapMenuController>();
-        Debug.Log("Got controller: " + (itemSwapMenuController != null));
-        itemSwapMenuController.SetUp(newItem);
-    }
-
-    public void CloseInventoryMenu()
-    {
-        Destroy(itemSwapMenuController.gameObject);
-        UnPauseGame();
-    }
 }

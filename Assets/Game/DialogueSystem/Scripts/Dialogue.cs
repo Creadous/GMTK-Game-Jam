@@ -19,4 +19,5 @@ public class DialogueNodes
     public string talker;
     [TextArea(3, 10)]
     public string conversation;
+    public string audioID;
 }

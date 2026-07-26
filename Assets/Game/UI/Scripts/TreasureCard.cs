@@ -6,39 +6,26 @@ using TMPro;
 public class TreasureCard : MenuButtonBase
 {
     public Image icon;
-    public Image priceIcon;
-    public TMP_Text titleText;
     public TMP_Text descriptionText;
-    public TMP_Text priceText;
     public int gold;
-
-
-    public void SetUp(ItemStatsBase itemStatsBase, int goldAmount, bool isShopMode = false)
+    
+    public void SetUp(ItemStatsBase itemStatsBase,int goldAmount)
     {
         icon.sprite = itemStatsBase.itemIcon;
-        Debug.Log(gameObject.name + " icon set to: " + (icon.sprite != null ? icon.sprite.name : "NULL"));
         gold = goldAmount;
-        if (itemStatsBase.ItemType != ItemType.Money)
+        switch (itemStatsBase.ItemType)
         {
-            titleText.text = itemStatsBase.itemName;
-        }
-        else
-        {
-            titleText.text = itemStatsBase.itemName + " " + gold;
-        }
-        descriptionText.text = itemStatsBase.itemDescription;
+            case ItemType.Money:
+                descriptionText.text = goldAmount.ToString();
+                break;
+            case ItemType.Weapon:
+                descriptionText.text = ((ItemStatsWeapon)itemStatsBase).damageRolls.x.ToString() + " - " + ((ItemStatsWeapon)itemStatsBase).damageRolls.y.ToString();
+                break;
+            case ItemType.UseableItem:
+                descriptionText.text =  ((ItemStatsUsable)itemStatsBase).power.ToString();
 
-        if (isShopMode)
-        {
-            priceIcon.gameObject.SetActive(true);
-            priceText.gameObject.SetActive(true);
-            priceText.text = itemStatsBase.shopPrice.ToString();
+                break;
         }
-        else
-        {
-            priceText.gameObject.SetActive(false);
-        }
-
-
+        
     }
 }

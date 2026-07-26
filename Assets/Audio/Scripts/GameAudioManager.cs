@@ -63,12 +63,6 @@ public class GameAudioManager : MonoBehaviour
         BGMTimeStamp = AudioController.Instance.CurrentTimeStampOnAudioClip();
         AudioController.Instance.PlayTrack(soundTrack.titleScreenBMG, true);
     }
-    public void PlayDropShipMenuBMG()
-    {
-        SoundBeforeCombatBGM = AudioController.Instance.GetAudioClip();
-        BGMTimeStamp = AudioController.Instance.CurrentTimeStampOnAudioClip();
-        AudioController.Instance.PlayTrack(soundTrack.dropshipBMG, true);
-    }
     public void PlayDungeonTrack()
     {
         if (AudioController.Instance.GetAudioClip() != soundTrack.dungeonexploreBMG)
@@ -94,6 +88,12 @@ public class GameAudioManager : MonoBehaviour
         SoundBeforeCombatBGM = AudioController.Instance.GetAudioClip();
         BGMTimeStamp = AudioController.Instance.CurrentTimeStampOnAudioClip();
         AudioController.Instance.PlayTrack(soundTrack.bossBGM[index], true);
+    }
+    public void PlayTownTrack()
+    {
+        SoundBeforeCombatBGM = AudioController.Instance.GetAudioClip();
+        BGMTimeStamp = AudioController.Instance.CurrentTimeStampOnAudioClip();
+        AudioController.Instance.PlayTrack(soundTrack.townBMG, true);
     }
 
     /*

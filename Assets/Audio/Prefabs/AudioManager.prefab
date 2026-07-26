@@ -464,3 +464,6 @@ MonoBehaviour:
   soundTrack: {fileID: 11400000, guid: 05b3250062268c548be59026b12f94a7, type: 2}
   soundEffects:
   - {fileID: 11400000, guid: 3594c9b30a7999640b17455be5ac3879, type: 2}
+  - {fileID: 11400000, guid: d2b3daecff3ab7d4d8fa586b5a2919f0, type: 2}
+  - {fileID: 11400000, guid: b6d7f5ae8b851de4ca129c76280b8aab, type: 2}
+  - {fileID: 11400000, guid: 9b31af1e3e94ffb49984405167350a47, type: 2}

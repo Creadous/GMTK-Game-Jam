@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Video;
 public class TitleScreenController : MonoBehaviour
 {
     public enum TitleScreenState 
     {
+        VidoePlaying,
         Idle,
         LoadingGame,
         Options,
@@ -16,19 +18,30 @@ public class TitleScreenController : MonoBehaviour
 
     public ButtonSelectionBase titleMenu;
     public string GameScene;
+    public Canvas canvas;
+
+    public VideoPlayer videoPlayer;
     // Start is called before the first frame update
     public GameObject controlMenu;
+    public OptionsMenuController optionsMenu;
     public void Awake()
     {
         titleMenu.SelectionAcceptedCallback.AddListener(() => TitleMenu_SelectionAcceptedCallback());
+        optionsMenu.LeaveMenuCallback.AddListener(() => TitleMenu_LeaveMenuCallback());
 
     }
 
+   
+
     void Start()
     {
-        GameAudioManager.instance.PlayTitleScreenBMG();
+        videoPlayer.loopPointReached += VideoEnded; //call when its finished
+        videoPlayer.started += VideoStarted; //call when its finished
+        videoPlayer.Play();
+
         titleMenu.BuildButtonList();
-        state = TitleScreenState.Idle;
+        state = TitleScreenState.VidoePlaying;
+        
     }
 
     // Update is called once per frame
@@ -36,6 +49,12 @@ public class TitleScreenController : MonoBehaviour
     {
         switch (state)
         {
+            case TitleScreenState.VidoePlaying:
+                if (InputManager.instance.AcceptInputRequested())
+                {
+                    VideoEnded(videoPlayer);
+                }
+                break;
             case TitleScreenState.Idle:
                 titleMenu.HandleButtonCycle(InputManager.instance.move.y);
                 titleMenu.HandleButtonInputs();
@@ -61,6 +80,9 @@ public class TitleScreenController : MonoBehaviour
                 state = TitleScreenState.LoadingGame;
                 break;
             case 1:
+                optionsMenu.gameObject.SetActive(true);
+                optionsMenu.SetUp();
+                state = TitleScreenState.Options;
                 break;
             case 2:
                 controlMenu.SetActive(true);
@@ -72,5 +94,21 @@ public class TitleScreenController : MonoBehaviour
                 Application.Quit();
                 break;
         }
+    }
+    private void TitleMenu_LeaveMenuCallback()
+    {
+        optionsMenu.gameObject.SetActive(false);
+        state = TitleScreenState.Idle;
+    }
+    void VideoStarted(VideoPlayer vp)
+    {
+        GameAudioManager.instance.PlayTitleScreenBMG();
+    }
+    void VideoEnded(VideoPlayer vp)
+    {
+        Debug.Log("Video is finished!");
+        canvas.gameObject.SetActive(true);
+        videoPlayer.gameObject.SetActive(false);
+        state = TitleScreenState.Idle;
     }
 }

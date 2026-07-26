@@ -7,6 +7,8 @@ using System;
 
 public class ItemSwapMenuController : MonoBehaviour
 {
+
+    public bool isFinished = false;
     public enum ItemSwapMenuState 
     {
         WaitForPlacement,
@@ -46,6 +48,8 @@ public class ItemSwapMenuController : MonoBehaviour
 
     public void SetUp(ItemStatsBase itemStats) 
     {
+        menuState  = ItemSwapMenuState.WaitForPlacement;
+        isFinished = false;
         newItemReff = itemStats;
         newItemNameText.text = newItemReff.itemName;
         newItemIcon.sprite = newItemReff.itemIcon;
@@ -91,7 +95,7 @@ public class ItemSwapMenuController : MonoBehaviour
                         AddItem();
                         UpdateActionButton();
                         menuState = ItemSwapMenuState.FinishedWithMenu;
-                        GameController.instance.CloseInventoryMenu();
+                        isFinished = true;
                     }
                     else
                     {
@@ -109,7 +113,7 @@ public class ItemSwapMenuController : MonoBehaviour
             AddItem();
             UpdateActionButton();
             menuState = ItemSwapMenuState.FinishedWithMenu;
-            GameController.instance.CloseInventoryMenu();
+            isFinished = true;
         }
         else
         {
