@@ -8,6 +8,7 @@ public class ItemStatsUsable : ItemStatsBase
     public float useCoolDown;
     public int power;
     public int magicCost; // future you can have healht poition cost magic every time you drink
-    public bool oneTimeUse;
+    public int numberOfuses;
+    public bool destoryAfterUse;
     public GameObject VFX;
 }

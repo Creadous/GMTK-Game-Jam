@@ -68,6 +68,7 @@ public class CombatActionCollider : MonoBehaviour
             vfxGameObject.transform.parent = null;
 
         }
+        DungeonManager.instance.activeBullets.Remove(this.gameObject);
         this.gameObject.SetActive(false);
         GameObject.Destroy(this.gameObject);
     }

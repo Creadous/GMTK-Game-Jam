@@ -1222,6 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98bf603e62879b34d83da185f40e1785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinished: 0
   menuState: 0
   buttonSelection: {fileID: 3498201118274394350}
   imageSlots:
@@ -1460,7 +1461,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c6e645efb17852f46bfacc907e219544, type: 3}
     - target: {fileID: 8620702135946766422, guid: c89367163e16fce42bd5cea469f15081, type: 3}
       propertyPath: m_text
-      value: R
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8620702135946766423, guid: c89367163e16fce42bd5cea469f15081, type: 3}
       propertyPath: m_Pivot.y
@@ -1601,7 +1602,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c6e645efb17852f46bfacc907e219544, type: 3}
     - target: {fileID: 8620702135946766422, guid: c89367163e16fce42bd5cea469f15081, type: 3}
       propertyPath: m_text
-      value: Q
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8620702135946766423, guid: c89367163e16fce42bd5cea469f15081, type: 3}
       propertyPath: m_Pivot.y
@@ -1742,7 +1743,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c6e645efb17852f46bfacc907e219544, type: 3}
     - target: {fileID: 8620702135946766422, guid: c89367163e16fce42bd5cea469f15081, type: 3}
       propertyPath: m_text
-      value: E
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8620702135946766423, guid: c89367163e16fce42bd5cea469f15081, type: 3}
       propertyPath: m_Pivot.y
@@ -1883,7 +1884,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c6e645efb17852f46bfacc907e219544, type: 3}
     - target: {fileID: 8620702135946766422, guid: c89367163e16fce42bd5cea469f15081, type: 3}
       propertyPath: m_text
-      value: X
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8620702135946766423, guid: c89367163e16fce42bd5cea469f15081, type: 3}
       propertyPath: m_Pivot.y

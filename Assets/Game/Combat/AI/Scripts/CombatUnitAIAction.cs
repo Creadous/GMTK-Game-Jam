@@ -13,6 +13,7 @@ public class CombatUnitAIAction : ScriptableObject
     }
     public AIActionType ActionType;
     public LayerMask layerMask;
+    public bool neverLosePlayer;
 
     public IEnumerator PreformAction(CombatUnitAIController unitAIController)
     {
@@ -78,25 +79,51 @@ public class CombatUnitAIAction : ScriptableObject
         Vector2Int difference = playerPos - enemyPos;
         Vector3 direction = Vector3.zero;
 
-        if (difference.x > 0)
+        bool pickedPath = false;
+
+        if (difference.x > 0 && pickedPath == false)
         {
-            direction = Vector3.right;
+            if(CanMoveToNewLocation(unitAIController, Vector3.right))
+            {
+                direction = Vector3.right;
+                pickedPath = true;
+            }
         }
-        else if (difference.x < 0)
+        if (difference.x < 0 && pickedPath == false)
         {
-            direction = Vector3.left;
+            if (CanMoveToNewLocation(unitAIController, Vector3.left))
+            {
+                direction = Vector3.left;
+                pickedPath = true;
+            }
         }
-        else if (difference.y > 0)
+        if (difference.y > 0 && pickedPath == false)
         {
-            direction = Vector3.forward;
+            if (CanMoveToNewLocation(unitAIController, Vector3.forward))
+            {
+                direction = Vector3.forward;
+                pickedPath = true;
+            }
         }
-        else if (difference.y < 0)
+        if (difference.y < 0 && pickedPath == false)
         {
-            direction = Vector3.back;
+            if (CanMoveToNewLocation(unitAIController, Vector3.back))
+            {
+                direction = Vector3.back;
+                pickedPath = true;
+            }
         }
-        //if(unitAIController.combatUnit.crawlerMovment.CanMove(transform.forward))
         yield return unitAIController.combatUnit.crawlerMovment.Move(direction);
         yield return null;
+    }
+    //helper
+    public bool CanMoveToNewLocation(CombatUnitAIController unitAIController, Vector3 direction)
+    {
+        if (unitAIController.combatUnit.crawlerMovment.CanMove(direction))
+        {
+            return true;
+        }
+        return false;
     }
     public IEnumerator LookForPlayer(CombatUnitAIController unitAIController)
     {
@@ -121,7 +148,10 @@ public class CombatUnitAIAction : ScriptableObject
                 }
                 else
                 {
-                    unitAIController.Target = null;
+                    if(neverLosePlayer == false)
+                    {
+                        unitAIController.Target = null;
+                    }
                 }
             }
         }

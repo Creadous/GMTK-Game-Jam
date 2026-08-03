@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class PlayerCombatActionButtons : MonoBehaviour
 {
     public Image Icon;
     public Image coolDownImage;
+    public TMP_Text amountText;
     [Space]
     public float coolDownCount;
     public float maxCoolDown;
 
     public ItemStatsBase equipmentReff;
+    public int numberOfUses;
+    public bool destoryOnUse;
     public bool isDisabled;
 
     private CombatActionLogicBase combatActionLogic;
@@ -25,6 +29,9 @@ public class PlayerCombatActionButtons : MonoBehaviour
     public void SetUp(ItemStatsBase equipment)
     {
         isDisabled = false;
+        destoryOnUse = false;
+        amountText.gameObject.SetActive(false);
+        numberOfUses = 0;
         Icon.gameObject.SetActive(true);
         equipmentReff = equipment;
         Icon.sprite = equipment.itemIcon;
@@ -48,11 +55,19 @@ public class PlayerCombatActionButtons : MonoBehaviour
 
                 break;
             case ItemType.UseableItem:
-                maxCoolDown = ((ItemStatsUsable)equipment).useCoolDown;
-                combatActionLogic = ((ItemStatsUsable)equipment).combatLogic;
-                combatVFX = ((ItemStatsUsable)equipment).VFX;
+                ItemStatsUsable itemStatsUsable = ((ItemStatsUsable)equipment);
+                maxCoolDown = itemStatsUsable.useCoolDown;
+                combatActionLogic = itemStatsUsable.combatLogic;
+                combatVFX = itemStatsUsable.VFX;
+                numberOfUses = itemStatsUsable.numberOfuses;
+                destoryOnUse = itemStatsUsable.destoryAfterUse;
                 playMiniGameFirst = false;
-                basePower = ((ItemStatsUsable)equipment).power;
+                basePower = itemStatsUsable.power;
+                if(numberOfUses != 0)
+                {
+                    amountText.text = numberOfUses.ToString();
+                    amountText.gameObject.SetActive(true);
+                }
                 break;
         }
         coolDownCount = 0;
@@ -94,11 +109,24 @@ public class PlayerCombatActionButtons : MonoBehaviour
         //here where you would play your mini game if you have one and add to base power
 
         combatActionLogic.PreformAction(PlayerController.instance.combatUnit, combatVFX, actionData);
+
+        if (numberOfUses > 0)
+        {
+
+            numberOfUses--;
+            amountText.text = numberOfUses.ToString();
+            if (numberOfUses == 0 && destoryOnUse)
+            {
+                ClearButton();
+            }
+        }
+
     }
     public void ClearButton()
     {
         Icon.sprite = null;
         Icon.gameObject.SetActive(false);
+        amountText.gameObject.SetActive(false);
         coolDownImage.fillAmount = 0;
         isDisabled = true;
     }

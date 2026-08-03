@@ -24,7 +24,6 @@ public class DungeonRoom : MonoBehaviour
 
     public List<DungeonExitDoorTeleporter> exits;
 
-
     public TileData GetTile(int x, int y)
     {
         return tiles[x + y * width];

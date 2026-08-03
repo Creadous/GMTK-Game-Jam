@@ -147,9 +147,9 @@
     <Compile Include="Assets\Game\UI\Scripts\ShopMenuController.cs" />
     <Compile Include="Assets\Game\DialogueSystem\Scripts\SimpleDialogueSystem.cs" />
     <Compile Include="Assets\Audio\Scripts\SoundEffectsGroup.cs" />
+    <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_RecoveryFountain.cs" />
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIAction.cs" />
     <Compile Include="Assets\Game\Core\Scripts\CharacterData.cs" />
-    <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_RecoveryFountain.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

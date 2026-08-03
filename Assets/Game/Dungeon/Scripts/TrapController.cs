@@ -48,5 +48,6 @@ public class TrapController : MonoBehaviour
         var combatActionController = vfxObject.GetComponent<CombatActionCollider>();
         combatActionController.power = bulletpower;
         combatActionController.PlayAction();
+        DungeonManager.instance.activeBullets.Add(vfxObject);
     }
 }

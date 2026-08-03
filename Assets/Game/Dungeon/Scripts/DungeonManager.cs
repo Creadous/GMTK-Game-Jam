@@ -21,6 +21,9 @@ public class DungeonManager : MonoBehaviour
     [Header("UI")]
     public BossRoomCountDownHud bossCountDownHud;
 
+    [Header("bullets")]
+    public List<GameObject> activeBullets;
+
     private void Awake()
     {
         instance = this;
@@ -35,6 +38,8 @@ public class DungeonManager : MonoBehaviour
         PlayerController.instance.SetModelPostion(currentRoom.startingPosition.spawnPoint);
         UpdateBossCountDownUI();
         GameAudioManager.instance.PlayDungeonTrack();
+
+        activeBullets = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -58,6 +63,7 @@ public class DungeonManager : MonoBehaviour
     }
     private void LoadNewRoom(string newRoomType)
     {
+        ClearAllBullets();
         GameObject selectRoom = null;
         List<GameObject> roomChoice = new List<GameObject>();
         switch (newRoomType)
@@ -128,6 +134,17 @@ public class DungeonManager : MonoBehaviour
         UpdateBossCountDownUI();
     }
 
+    private void ClearAllBullets()
+    {
+        foreach(GameObject bullet in activeBullets)
+        {
+            if(bullet != null)
+            {
+                GameObject.DestroyImmediate(bullet);
+            }
+        }
+        activeBullets.Clear();
+    }
     public void SpawnBossDoor()
     {
         if((currentRoomVisitCount +1) == numberOfRoomBeforeBoss) //room just before boss room
