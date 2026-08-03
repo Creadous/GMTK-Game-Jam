@@ -100,24 +100,6 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""TabLeft"",
-                    ""type"": ""Button"",
-                    ""id"": ""bcb2ccd4-308e-45b1-9d3e-8583dd02e118"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""TabRight"",
-                    ""type"": ""Button"",
-                    ""id"": ""0b9f7815-ec06-4ca0-8d9b-4b6f499b7d1d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Combat01"",
                     ""type"": ""Button"",
                     ""id"": ""0ef4954b-ad0d-45ae-8e47-9a97a972a6e8"",
@@ -148,6 +130,24 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""name"": ""Combat04"",
                     ""type"": ""Button"",
                     ""id"": ""15ce0dde-3493-4aa7-81ee-7c52102aeb5a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StrifeLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""672445dd-4565-4c4e-93e5-f82b0c22f965"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""StrikeRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""f0e853bf-d5d5-489e-be47-eebad879c4e9"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -443,52 +443,8 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c86b8480-2def-4e14-be9d-45ba7e297488"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoardMouse"",
-                    ""action"": ""TabLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a2da8ca6-896a-4abe-8dad-0f9fa52c6ec2"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""TabLeft"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4efac11a-102a-4c3a-9bf6-a5a00bfb88c2"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoardMouse"",
-                    ""action"": ""TabRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f820513b-29c6-4746-ba8a-f111368502be"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""GamePad"",
-                    ""action"": ""TabRight"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""6f9b3b14-ee71-4301-901d-68903e580ea2"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoardMouse"",
@@ -510,7 +466,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""57bffda4-53eb-4b5d-a975-8df5bba47865"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoardMouse"",
@@ -532,7 +488,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9d415098-8acd-4e7f-b9bc-958fb65c97a7"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoardMouse"",
@@ -543,11 +499,55 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""16313f8f-9634-4bfe-8d98-9236d9fc591d"",
-                    ""path"": ""<Keyboard>/x"",
+                    ""path"": ""<Keyboard>/4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoardMouse"",
                     ""action"": ""Combat04"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""30393fcd-b5c6-49f9-bb9b-5dbad054a12d"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardMouse"",
+                    ""action"": ""StrifeLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1aef3595-278b-4aa8-b16b-2d0c38614da8"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""StrifeLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3cbdb1d0-af32-4336-8cf1-0e50bd119f55"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoardMouse"",
+                    ""action"": ""StrikeRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f0b7cfb0-2389-40fd-80cc-4c877707cafa"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""StrikeRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -589,12 +589,12 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_Map = m_Player.FindAction("Map", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_TabLeft = m_Player.FindAction("TabLeft", throwIfNotFound: true);
-        m_Player_TabRight = m_Player.FindAction("TabRight", throwIfNotFound: true);
         m_Player_Combat01 = m_Player.FindAction("Combat01", throwIfNotFound: true);
         m_Player_Combat02 = m_Player.FindAction("Combat02", throwIfNotFound: true);
         m_Player_Combat03 = m_Player.FindAction("Combat03", throwIfNotFound: true);
         m_Player_Combat04 = m_Player.FindAction("Combat04", throwIfNotFound: true);
+        m_Player_StrifeLeft = m_Player.FindAction("StrifeLeft", throwIfNotFound: true);
+        m_Player_StrikeRight = m_Player.FindAction("StrikeRight", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -664,12 +664,12 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_Map;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_TabLeft;
-    private readonly InputAction m_Player_TabRight;
     private readonly InputAction m_Player_Combat01;
     private readonly InputAction m_Player_Combat02;
     private readonly InputAction m_Player_Combat03;
     private readonly InputAction m_Player_Combat04;
+    private readonly InputAction m_Player_StrifeLeft;
+    private readonly InputAction m_Player_StrikeRight;
     public struct PlayerActions
     {
         private @CharacterInput m_Wrapper;
@@ -682,12 +682,12 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @Map => m_Wrapper.m_Player_Map;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @TabLeft => m_Wrapper.m_Player_TabLeft;
-        public InputAction @TabRight => m_Wrapper.m_Player_TabRight;
         public InputAction @Combat01 => m_Wrapper.m_Player_Combat01;
         public InputAction @Combat02 => m_Wrapper.m_Player_Combat02;
         public InputAction @Combat03 => m_Wrapper.m_Player_Combat03;
         public InputAction @Combat04 => m_Wrapper.m_Player_Combat04;
+        public InputAction @StrifeLeft => m_Wrapper.m_Player_StrifeLeft;
+        public InputAction @StrikeRight => m_Wrapper.m_Player_StrikeRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -721,12 +721,6 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @TabLeft.started += instance.OnTabLeft;
-            @TabLeft.performed += instance.OnTabLeft;
-            @TabLeft.canceled += instance.OnTabLeft;
-            @TabRight.started += instance.OnTabRight;
-            @TabRight.performed += instance.OnTabRight;
-            @TabRight.canceled += instance.OnTabRight;
             @Combat01.started += instance.OnCombat01;
             @Combat01.performed += instance.OnCombat01;
             @Combat01.canceled += instance.OnCombat01;
@@ -739,6 +733,12 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Combat04.started += instance.OnCombat04;
             @Combat04.performed += instance.OnCombat04;
             @Combat04.canceled += instance.OnCombat04;
+            @StrifeLeft.started += instance.OnStrifeLeft;
+            @StrifeLeft.performed += instance.OnStrifeLeft;
+            @StrifeLeft.canceled += instance.OnStrifeLeft;
+            @StrikeRight.started += instance.OnStrikeRight;
+            @StrikeRight.performed += instance.OnStrikeRight;
+            @StrikeRight.canceled += instance.OnStrikeRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -767,12 +767,6 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @TabLeft.started -= instance.OnTabLeft;
-            @TabLeft.performed -= instance.OnTabLeft;
-            @TabLeft.canceled -= instance.OnTabLeft;
-            @TabRight.started -= instance.OnTabRight;
-            @TabRight.performed -= instance.OnTabRight;
-            @TabRight.canceled -= instance.OnTabRight;
             @Combat01.started -= instance.OnCombat01;
             @Combat01.performed -= instance.OnCombat01;
             @Combat01.canceled -= instance.OnCombat01;
@@ -785,6 +779,12 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Combat04.started -= instance.OnCombat04;
             @Combat04.performed -= instance.OnCombat04;
             @Combat04.canceled -= instance.OnCombat04;
+            @StrifeLeft.started -= instance.OnStrifeLeft;
+            @StrifeLeft.performed -= instance.OnStrifeLeft;
+            @StrifeLeft.canceled -= instance.OnStrifeLeft;
+            @StrikeRight.started -= instance.OnStrikeRight;
+            @StrikeRight.performed -= instance.OnStrikeRight;
+            @StrikeRight.canceled -= instance.OnStrikeRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -830,11 +830,11 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnMap(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnTabLeft(InputAction.CallbackContext context);
-        void OnTabRight(InputAction.CallbackContext context);
         void OnCombat01(InputAction.CallbackContext context);
         void OnCombat02(InputAction.CallbackContext context);
         void OnCombat03(InputAction.CallbackContext context);
         void OnCombat04(InputAction.CallbackContext context);
+        void OnStrifeLeft(InputAction.CallbackContext context);
+        void OnStrikeRight(InputAction.CallbackContext context);
     }
 }

@@ -36,7 +36,10 @@ public class PlayerController : MonoBehaviour
         if (movment.hasMoved)
         {
             movment.hasMoved = false;
-            combatUnit.combatStats.UpdateCurrentStamina(-1);
+            if (DungeonManager.instance.DisableStaminaDrain() == false)
+            {
+                combatUnit.combatStats.UpdateCurrentStamina(-1);
+            }
         }
 
         CheckStamina();
@@ -70,6 +73,16 @@ public class PlayerController : MonoBehaviour
         {
             //backwards
             movment.MoveBackwards();
+        }
+        else if(InputManager.instance.strifeLeft == true)
+        {
+            InputManager.instance.strifeLeft = false;
+            movment.StrifeLeft();
+        }
+        else if (InputManager.instance.strifeRight == true)
+        {
+            InputManager.instance.strifeRight = false;
+            movment.StrifeRight();
         }
     }
     public void SetModelPostion(Transform newTransform)

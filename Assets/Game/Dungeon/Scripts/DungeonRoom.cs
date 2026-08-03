@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DungeonRoom : MonoBehaviour
 {
+    public string roomID;
+    public bool disableStaminaDrain;
     [Header("Room Generation")]
     public int width = 10;
     public int height = 10;

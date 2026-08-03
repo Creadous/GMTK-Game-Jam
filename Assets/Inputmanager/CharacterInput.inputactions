@@ -78,24 +78,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TabLeft",
-                    "type": "Button",
-                    "id": "bcb2ccd4-308e-45b1-9d3e-8583dd02e118",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "TabRight",
-                    "type": "Button",
-                    "id": "0b9f7815-ec06-4ca0-8d9b-4b6f499b7d1d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Combat01",
                     "type": "Button",
                     "id": "0ef4954b-ad0d-45ae-8e47-9a97a972a6e8",
@@ -126,6 +108,24 @@
                     "name": "Combat04",
                     "type": "Button",
                     "id": "15ce0dde-3493-4aa7-81ee-7c52102aeb5a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StrifeLeft",
+                    "type": "Button",
+                    "id": "672445dd-4565-4c4e-93e5-f82b0c22f965",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StrikeRight",
+                    "type": "Button",
+                    "id": "f0e853bf-d5d5-489e-be47-eebad879c4e9",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -421,52 +421,8 @@
                 },
                 {
                     "name": "",
-                    "id": "c86b8480-2def-4e14-be9d-45ba7e297488",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoardMouse",
-                    "action": "TabLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a2da8ca6-896a-4abe-8dad-0f9fa52c6ec2",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad",
-                    "action": "TabLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4efac11a-102a-4c3a-9bf6-a5a00bfb88c2",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoardMouse",
-                    "action": "TabRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f820513b-29c6-4746-ba8a-f111368502be",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "GamePad",
-                    "action": "TabRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "6f9b3b14-ee71-4301-901d-68903e580ea2",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoardMouse",
@@ -488,7 +444,7 @@
                 {
                     "name": "",
                     "id": "57bffda4-53eb-4b5d-a975-8df5bba47865",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoardMouse",
@@ -510,7 +466,7 @@
                 {
                     "name": "",
                     "id": "9d415098-8acd-4e7f-b9bc-958fb65c97a7",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoardMouse",
@@ -521,11 +477,55 @@
                 {
                     "name": "",
                     "id": "16313f8f-9634-4bfe-8d98-9236d9fc591d",
-                    "path": "<Keyboard>/x",
+                    "path": "<Keyboard>/4",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyBoardMouse",
                     "action": "Combat04",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30393fcd-b5c6-49f9-bb9b-5dbad054a12d",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardMouse",
+                    "action": "StrifeLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1aef3595-278b-4aa8-b16b-2d0c38614da8",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "StrifeLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3cbdb1d0-af32-4336-8cf1-0e50bd119f55",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoardMouse",
+                    "action": "StrikeRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0b7cfb0-2389-40fd-80cc-4c877707cafa",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GamePad",
+                    "action": "StrikeRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

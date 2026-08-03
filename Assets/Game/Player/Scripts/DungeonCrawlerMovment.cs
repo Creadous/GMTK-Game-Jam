@@ -50,6 +50,30 @@ public class DungeonCrawlerMovment : MonoBehaviour
             //TODO camera shake
         }
     }
+    public void StrifeLeft()
+    {
+        if (isMoving == true) return;
+        if (CanMove(-transform.right))
+        {
+            StartCoroutine(Move(-transform.right));
+        }
+        else
+        {
+            //TODO camera shake
+        }
+    }
+    public void StrifeRight()
+    {
+        if (isMoving == true) return;
+        if (CanMove(transform.right))
+        {
+            StartCoroutine(Move(transform.right));
+        }
+        else
+        {
+            //TODO camera shake
+        }
+    }
     public void RotateLeft()
     {
         if (isMoving == true) return;

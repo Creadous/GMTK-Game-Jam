@@ -13688,6 +13688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55aa5304079fae04090d6fef3a413e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomID: battle02
+  disableStaminaDrain: 0
   width: 10
   height: 10
   cellSize: 5

@@ -13,6 +13,7 @@ public class DungeonManager : MonoBehaviour
     [Space]
     [Header("DungeonRoom")]
     public DungeonRoom currentRoom;
+    public string lastRoomID;
 
     public int currentRoomVisitCount;
     public int numberOfRoomBeforeBoss;
@@ -99,7 +100,16 @@ public class DungeonManager : MonoBehaviour
                 break;
         }
 
-        selectRoom = roomChoice[Random.Range(0, roomChoice.Count)];
+        //cycle room selection unitl you get New one
+        lastRoomID = currentRoom.roomID;
+        string newRoomID = "";
+        do
+        {
+            selectRoom = roomChoice[Random.Range(0, roomChoice.Count)];
+            newRoomID = selectRoom.GetComponent<DungeonRoom>().roomID;
+        } 
+        while (lastRoomID == newRoomID);
+
 
         //remove all room
         currentRoom.DestroyRoom();
@@ -133,5 +143,13 @@ public class DungeonManager : MonoBehaviour
     {
         int roomsLeft = numberOfRoomBeforeBoss - currentRoomVisitCount;
         bossCountDownHud.UpateCountDown(roomsLeft);
+    }
+    public bool DisableStaminaDrain()
+    {
+        if (currentRoom.disableStaminaDrain)
+        {
+            return true;
+        }
+        return false;
     }
 }

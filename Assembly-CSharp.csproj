@@ -61,6 +61,7 @@
     <Compile Include="Assets\Game\UI\Scripts\PlayerHudController.cs" />
     <Compile Include="Assets\_3rdParty\VFX\Epic Toon FX\Scripts\ETFXLightFade.cs" />
     <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_DungeonDoorTeleporter.cs" />
+    <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatUnitAnimatorHelper.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\TileData.cs" />
     <Compile Include="Assets\_3rdParty\Layer Lab\Scripts\PanelView.cs" />
     <Compile Include="Assets\Game\UI\Scripts\BossRoomCountDownHud.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonRoomEditor.cs" />
     <Compile Include="Assets\_3rdParty\Layer Lab\Scripts\PanelControl.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonManager.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\CantAffordMessage.cs" />
     <Compile Include="Assets\Audio\Scripts\AudioController.cs" />
     <Compile Include="Assets\Game\Combat\UI\PlayerCombatActionButtons.cs" />
     <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatUnit.cs" />
@@ -77,7 +79,10 @@
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIState.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\KeyBoardScrollViewLogic.cs" />
     <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionCollider.cs" />
+    <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\MonsterLootDrop.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\ItemSwapMenuController.cs" />
     <Compile Include="Assets\Game\UI\Scripts\GameOverMenuController.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\OptionsMenuController.cs" />
     <Compile Include="Assets\SceneManager\Scripts\SceneManagerController.cs" />
     <Compile Include="Assets\Game\UI\Scripts\MainMenuController.cs" />
     <Compile Include="Assets\Game\Items\Scripts\ItemStatsUsable.cs" />
@@ -88,9 +93,11 @@
     <Compile Include="Assets\Inputmanager\InputManager.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\SubMenuController.cs" />
     <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionLogicTileAction.cs" />
+    <Compile Include="Assets\Game\Dungeon\Scripts\TrapController.cs" />
     <Compile Include="Assets\Game\Interactable\Scripts\PlayerAimController.cs" />
     <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject.cs" />
     <Compile Include="Assets\Game\Items\Scripts\MasterItemList.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\ConfirmHud.cs" />
     <Compile Include="Assets\_3rdParty\VFX\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
     <Compile Include="Assets\Audio\Scripts\GameAudioManager.cs" />
     <Compile Include="Assets\Game\UI\Scripts\LootDropMenuController.cs" />
@@ -98,13 +105,17 @@
     <Compile Include="Assets\Game\Interactable\Scripts\InteractablePlayerController.cs" />
     <Compile Include="Assets\_3rdParty\Synty\PolygonGeneric\Scripts\Generic_SimpleRotate.cs" />
     <Compile Include="Assets\Game\Core\Scripts\GameController.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\VictoryMenuController.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\MenuButtonBase.cs" />
+    <Compile Include="Assets\Utilites\UI\Scripts\MenuRemoteCallBack.cs" />
+    <Compile Include="Assets\Utilites\TriggerBGMChange.cs" />
     <Compile Include="Assets\Game\UI\Scripts\TreasureCard.cs" />
     <Compile Include="Assets\Game\Items\Scripts\ItemStatsBase.cs" />
     <Compile Include="Assets\_3rdParty\VFX\Epic Toon FX\Scripts\ETFXRotation.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\FillBar.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\ButtonSelectionBase.cs" />
     <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_NPC.cs" />
+    <Compile Include="Assets\AfterDeathAnimationScript.cs" />
     <Compile Include="Assets\Game\Combat\UI\PlayerCombatActionController.cs" />
     <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatStats.cs" />
     <Compile Include="Assets\Audio\Scripts\SoundEffectsNode.cs" />
@@ -112,6 +123,7 @@
     <Compile Include="Assets\Inputmanager\CharacterInput.cs" />
     <Compile Include="Assets\SceneManager\Scripts\PlayerSpawnLocation.cs" />
     <Compile Include="Assets\Game\MiniGame\Scripts\MeleeMiniGame.cs" />
+    <Compile Include="Assets\Utilites\UI\Scripts\ScallerUI.cs" />
     <Compile Include="Assets\_3rdParty\Synty\PolygonGeneric\Scripts\Generic_WaterBob.cs" />
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIController.cs" />
     <Compile Include="Assets\Utilites\UtilitesHelper.cs" />
@@ -122,6 +134,7 @@
     <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionLogicBase.cs" />
     <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionLogicBulletAction.cs" />
     <Compile Include="Assets\Game\Items\Scripts\ItemStatsWeapon.cs" />
+    <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_Bag.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonTile.cs" />
     <Compile Include="Assets\Game\MiniGame\Scripts\CircleController.cs" />
     <Compile Include="Assets\Game\Player\Scripts\PlayerController.cs" />
@@ -130,25 +143,13 @@
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonExitDoorTeleporter.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonRoom.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonTileLayout.cs" />
+    <Compile Include="Assets\Game\UI\Scripts\ShoppingMenu.cs" />
     <Compile Include="Assets\Game\UI\Scripts\ShopMenuController.cs" />
     <Compile Include="Assets\Game\DialogueSystem\Scripts\SimpleDialogueSystem.cs" />
     <Compile Include="Assets\Audio\Scripts\SoundEffectsGroup.cs" />
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIAction.cs" />
     <Compile Include="Assets\Game\Core\Scripts\CharacterData.cs" />
-    <Compile Include="Assets\Game\Dungeon\Scripts\TrapController.cs" />
-    <Compile Include="Assets\Utilites\UI\Scripts\MenuRemoteCallBack.cs" />
-    <Compile Include="Assets\Game\UI\Scripts\VictoryMenuController.cs" />
-    <Compile Include="Assets\AfterDeathAnimationScript.cs" />
-    <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatUnitAnimatorHelper.cs" />
-    <Compile Include="Assets\Game\UI\Scripts\ItemSwapMenuController.cs" />
-    <Compile Include="Assets\Game\UI\Scripts\ConfirmHud.cs" />
-    <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_Bag.cs" />
-    <Compile Include="Assets\Game\UI\Scripts\CantAffordMessage.cs" />
-    <Compile Include="Assets\Game\UI\Scripts\ShoppingMenu.cs" />
-    <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\MonsterLootDrop.cs" />
-    <Compile Include="Assets\Utilites\UI\Scripts\ScallerUI.cs" />
-    <Compile Include="Assets\Game\UI\Scripts\OptionsMenuController.cs" />
-    <Compile Include="Assets\Utilites\TriggerBGMChange.cs" />
+    <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_RecoveryFountain.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

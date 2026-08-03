@@ -17,8 +17,8 @@ public class InputManager : MonoBehaviour
 	public bool map;
 	public bool interact;
 
-	public bool tabLeft;
-	public bool tabRight;
+	public bool strifeLeft;
+	public bool strifeRight;
 
 	public bool combat01;
 	public bool combat02;
@@ -71,12 +71,11 @@ public class InputManager : MonoBehaviour
 			playerInput.Player.Interact.performed += i => interact = true;
 			playerInput.Player.Interact.canceled += i => interact = false;
 
-			playerInput.Player.TabLeft.performed += i => tabLeft = true;
-			playerInput.Player.TabLeft.canceled += i => tabLeft = false;
+			playerInput.Player.StrifeLeft.performed += i => strifeLeft = true;
+			playerInput.Player.StrifeLeft.canceled += i => strifeLeft = false;
 
-			playerInput.Player.TabRight.performed += i => tabRight = true;
-			playerInput.Player.TabRight.canceled += i => tabRight = false;
-
+			playerInput.Player.StrikeRight.performed += i => strifeRight = true;
+			playerInput.Player.StrikeRight.canceled += i => strifeRight = false;
 
 			//combat
 			playerInput.Player.Combat01.performed += i => combat01 = true;
