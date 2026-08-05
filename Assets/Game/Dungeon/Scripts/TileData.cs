@@ -25,6 +25,20 @@ public class TileData
     public WallData walls;
    
     public bool occupied;
+    //astar pathfinding
+    [HideInInspector] public TileData parent;
+    public int gCost;
+    public int hCost;
+    public int fCost => gCost + hCost; // total cost
+
+    public bool IsWalkable()
+    {
+        if(type != TileType.Empty)
+        {
+            return true;
+        }
+        return false;
+    }
 }
 [System.Serializable]
 public class WallData

@@ -45,6 +45,19 @@ public class DungeonRoom : MonoBehaviour
         ClearTiles();
     }
 
+    public TileData[,] GetTileDataGrid()
+    {
+        TileData[,] grid = new TileData[width,height];
+        for(int y = 0; y < height; y++)
+        {
+            for(int x = 0; x < width; x++)
+            {
+                grid[x,y] = tiles[x + y * width];
+            }
+        }
+        return grid;
+    }
+
     #region wall logic
     public void UpdateWalls()
     {
@@ -152,7 +165,7 @@ public class DungeonRoom : MonoBehaviour
             {
                 TileData tile = GetTile(x, y);
                 Vector3 position = new Vector3(x * cellSize, 0, y * cellSize);
-
+                tile.gridPosition = new Vector2Int(x, y);
                 if (tile.type != TileType.Empty)
                 {
                     //Genertate floor tile

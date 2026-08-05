@@ -26,7 +26,8 @@ public class CombatUnitAIAction : ScriptableObject
                 break;
             case AIActionType.Move:
                 Debug.Log(unitAIController.combatUnit.combatStats.name + " moving");
-                yield return MoveTo(unitAIController);
+                yield return MoveToAStar(unitAIController);
+                //yield return MoveTo(unitAIController);
                 yield return new WaitForSeconds(1);
 
                 break;
@@ -78,12 +79,40 @@ public class CombatUnitAIAction : ScriptableObject
 
         Vector2Int difference = playerPos - enemyPos;
         Vector3 direction = Vector3.zero;
+        direction = PickMovementDirectionHelper(unitAIController, difference);
 
+        yield return unitAIController.combatUnit.crawlerMovment.Move(direction);
+        yield return null;
+    }
+    public IEnumerator MoveToAStar(CombatUnitAIController unitAIController)
+    {
+        Vector3 direction = Vector3.zero;
+
+        var Path = AStarPathfinding.instance.FindPath(unitAIController.combatUnit.crawlerMovment.gridLocation, PlayerController.instance.movment.gridLocation);
+
+        Vector2Int enemyPos = unitAIController.combatUnit.crawlerMovment.gridLocation;
+        Vector2Int difference = Path[1] - enemyPos;
+        direction = PickMovementDirectionHelper(unitAIController, difference);
+        yield return unitAIController.combatUnit.crawlerMovment.Move(direction);
+        yield return null;
+    }
+    //helper
+    public bool CanMoveToNewLocation(CombatUnitAIController unitAIController, Vector3 direction)
+    {
+        if (unitAIController.combatUnit.crawlerMovment.CanMove(direction))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public Vector3 PickMovementDirectionHelper(CombatUnitAIController unitAIController, Vector2Int difference)
+    {
         bool pickedPath = false;
-
+        Vector3 direction = Vector3.zero;
         if (difference.x > 0 && pickedPath == false)
         {
-            if(CanMoveToNewLocation(unitAIController, Vector3.right))
+            if (CanMoveToNewLocation(unitAIController, Vector3.right))
             {
                 direction = Vector3.right;
                 pickedPath = true;
@@ -91,7 +120,7 @@ public class CombatUnitAIAction : ScriptableObject
         }
         if (difference.x < 0 && pickedPath == false)
         {
-            if (CanMoveToNewLocation(unitAIController, Vector3.left))
+            if (CanMoveToNewLocation(unitAIController, Vector3.left) )
             {
                 direction = Vector3.left;
                 pickedPath = true;
@@ -113,18 +142,9 @@ public class CombatUnitAIAction : ScriptableObject
                 pickedPath = true;
             }
         }
-        yield return unitAIController.combatUnit.crawlerMovment.Move(direction);
-        yield return null;
+        return direction;
     }
-    //helper
-    public bool CanMoveToNewLocation(CombatUnitAIController unitAIController, Vector3 direction)
-    {
-        if (unitAIController.combatUnit.crawlerMovment.CanMove(direction))
-        {
-            return true;
-        }
-        return false;
-    }
+
     public IEnumerator LookForPlayer(CombatUnitAIController unitAIController)
     {
         Vector3 start = unitAIController.combatUnit.transform.position + Vector3.up; // eye height
