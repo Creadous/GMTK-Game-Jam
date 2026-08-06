@@ -13,6 +13,7 @@ public class PlayerCombatActionButtons : MonoBehaviour
     public float maxCoolDown;
 
     public ItemStatsBase equipmentReff;
+    private ItemStatsWeapon weaponReff;
     public int numberOfUses;
     public bool destoryOnUse;
     public bool isDisabled;
@@ -28,6 +29,7 @@ public class PlayerCombatActionButtons : MonoBehaviour
 
     public void SetUp(ItemStatsBase equipment)
     {
+        weaponReff = null;
         isDisabled = false;
         destoryOnUse = false;
         amountText.gameObject.SetActive(false);
@@ -44,14 +46,15 @@ public class PlayerCombatActionButtons : MonoBehaviour
                 combatActionLogic = weaponData.combatLogic;
                 combatVFX = weaponData.VFX;
                 playMiniGameFirst = true;
-                basePower = Random.Range(weaponData.damageRolls.x, weaponData.damageRolls.y);
-
+             
                 //cost logic
                 if (weaponData.magiccost != 0)
                 {
                     hasMagicCost = true;
                     magicCost = weaponData.magiccost;
                 }
+
+                weaponReff = weaponData;
 
                 break;
             case ItemType.UseableItem:
@@ -104,6 +107,13 @@ public class PlayerCombatActionButtons : MonoBehaviour
 
         //this is were you figure out what the action does.
         CombatActionData actionData = new CombatActionData();
+
+        if(equipmentReff.ItemType == ItemType.Weapon)
+        {
+            Debug.Log("player base damage rolls" + weaponReff.damageRolls.x.ToString() + " , " + weaponReff.damageRolls.y.ToString());
+            basePower = Random.Range(weaponReff.damageRolls.x, weaponReff.damageRolls.y);
+            Debug.Log("player base damage" + basePower.ToString());
+        }
         actionData.power = basePower;
 
         //here where you would play your mini game if you have one and add to base power

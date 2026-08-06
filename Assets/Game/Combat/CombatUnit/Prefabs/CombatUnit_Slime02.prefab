@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.name
-      value: Green Slime
+      value: Purple Slime
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.defence

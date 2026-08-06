@@ -34,6 +34,9 @@ public class GameController : MonoBehaviour
     public GameObject itemSwapMenuPrefab;
     private ItemSwapMenuController itemSwapMenuController;
 
+    [Header("DamagePopUp")]
+    public GameObject DamagePopUpPrefab;
+
     private void Awake()
     {
         if (instance == null)
@@ -132,4 +135,11 @@ public class GameController : MonoBehaviour
         GameObject.Destroy(shopmenu.gameObject);
     }
     #endregion
+
+    public void SpawnDamagePopUp(Vector3 worldPosition, int damage)
+    {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPosition);
+        var popup = Instantiate(DamagePopUpPrefab,screenPos, Quaternion.identity,Canvas.transform);
+        popup.GetComponent<DamagePopUp>().Setup(damage, Color.red);
+    }
 }

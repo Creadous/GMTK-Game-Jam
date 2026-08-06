@@ -56,7 +56,6 @@ public class CombatUnitAIAction : ScriptableObject
             unitAIController.gameObject.transform.rotation = Quaternion.LookRotation(direction);
         }
 
-       
 
         unitAIController.combatUnit.PlayAttackAnimation();
 

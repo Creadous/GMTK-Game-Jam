@@ -108,6 +108,7 @@ MonoBehaviour:
   shopMenuPrefab: {fileID: 3863276337525942044, guid: 5ef2642ff7ebd5b4199f7df081ccee0e, type: 3}
   Canvas: {fileID: 771120517836746541}
   itemSwapMenuPrefab: {fileID: 8030343354436693095, guid: 19e6c7d866b5f824e8e37a945d70a861, type: 3}
+  DamagePopUpPrefab: {fileID: 9066369397694618750, guid: f2e689d3a9b07f8478175b116a292481, type: 3}
 --- !u!114 &1176193005
 MonoBehaviour:
   m_ObjectHideFlags: 0

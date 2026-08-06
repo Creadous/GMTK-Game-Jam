@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2553912490984324759}
   - component: {fileID: 6375945583958293714}
   m_Layer: 8
-  m_Name: TitleDamageVFX_Slime
+  m_Name: TitleDamageVFX_Slime01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

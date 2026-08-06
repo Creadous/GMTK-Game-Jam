@@ -67,11 +67,12 @@
     <Compile Include="Assets\Game\UI\Scripts\BossRoomCountDownHud.cs" />
     <Compile Include="Assets\Game\Interactable\Scripts\IInteractable.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonRoomEditor.cs" />
+    <Compile Include="Assets\Game\Pathfinding\AStarPathfinding.cs" />
     <Compile Include="Assets\_3rdParty\Layer Lab\Scripts\PanelControl.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonManager.cs" />
     <Compile Include="Assets\Game\UI\Scripts\CantAffordMessage.cs" />
     <Compile Include="Assets\Audio\Scripts\AudioController.cs" />
-    <Compile Include="Assets\Game\Combat\UI\PlayerCombatActionButtons.cs" />
+    <Compile Include="Assets\Game\Combat\UI\Scripts\PlayerCombatActionButtons.cs" />
     <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatUnit.cs" />
     <Compile Include="Assets\Utilites\UI\Scripts\Billboard.cs" />
     <Compile Include="Assets\Game\MiniGame\Scripts\BowMiniGame.cs" />
@@ -116,7 +117,7 @@
     <Compile Include="Assets\Utilites\UI\Scripts\ButtonSelectionBase.cs" />
     <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_NPC.cs" />
     <Compile Include="Assets\AfterDeathAnimationScript.cs" />
-    <Compile Include="Assets\Game\Combat\UI\PlayerCombatActionController.cs" />
+    <Compile Include="Assets\Game\Combat\UI\Scripts\PlayerCombatActionController.cs" />
     <Compile Include="Assets\Game\Combat\CombatUnit\Scripts\CombatStats.cs" />
     <Compile Include="Assets\Audio\Scripts\SoundEffectsNode.cs" />
     <Compile Include="Assets\Game\Player\Scripts\DungeonCrawlerMovment.cs" />
@@ -150,7 +151,7 @@
     <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_RecoveryFountain.cs" />
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIAction.cs" />
     <Compile Include="Assets\Game\Core\Scripts\CharacterData.cs" />
-    <Compile Include="Assets\Game\Pathfinding\AStarPathfinding.cs" />
+    <Compile Include="Assets\Game\Combat\UI\Scripts\DamagePopUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -510,20 +511,12 @@
       <HintPath>A:\UnityEditor\2021.3.45f2\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>Library\PackageCache\com.unity.collections@1.5.1\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.6\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
@@ -1058,16 +1051,16 @@
       <HintPath>Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.UI">
@@ -1106,10 +1099,6 @@
       <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.Collections.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
       <Private>False</Private>
@@ -1124,10 +1113,6 @@
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Collections">
-      <HintPath>Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
@@ -1276,41 +1261,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="DrawingPackageToolsEditor.csproj">
-      <Project>{482CAF2F-8383-18D9-5F52-09F579415DC2}</Project>
-      <Name>DrawingPackageToolsEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="AstarPackageToolsEditor.csproj">
-      <Project>{A142E42B-130A-3880-99BB-7609AF43A984}</Project>
-      <Name>AstarPackageToolsEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Drawing.csproj">
-      <Project>{F0DF395B-6E69-AD28-8760-18E79655F005}</Project>
-      <Name>Drawing</Name>
-    </ProjectReference>
-    <ProjectReference Include="PackageTools.csproj">
-      <Project>{5F96D502-F4E7-BF4C-F5B2-4B3A7747944A}</Project>
-      <Name>PackageTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{127F82E3-C029-322E-3AEF-90430D7B5F89}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="andywiecko.BurstTriangulator.csproj">
-      <Project>{CFB99724-0453-F4B5-742D-57618854EFE8}</Project>
-      <Name>andywiecko.BurstTriangulator</Name>
-    </ProjectReference>
     <ProjectReference Include="ProPixelizer.csproj">
       <Project>{4454E223-4108-23D7-D96C-0EB5A310B6D4}</Project>
       <Name>ProPixelizer</Name>
-    </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{BBB4FE1C-DE5D-EDF6-B0B3-467499693C14}</Project>
-      <Name>AstarPathfindingProject</Name>
-    </ProjectReference>
-    <ProjectReference Include="DrawingEditor.csproj">
-      <Project>{1857D857-CAE1-F98C-9868-938D5FAD64CD}</Project>
-      <Name>DrawingEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

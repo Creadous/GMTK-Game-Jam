@@ -51,6 +51,10 @@ public class CombatUnit : MonoBehaviour
     {
         if(animator != null) animator.SetTrigger("GetHit");
         combatStats.UpdateCurrentStamina(power);
+        if(combatStats.name != "Player")
+        {
+            GameController.instance.SpawnDamagePopUp(this.transform.position + Vector3.up * 1f, power * -1); //*-1 to make it not negitive
+        }
     }
     public void PlayAttackAnimation()
     {
