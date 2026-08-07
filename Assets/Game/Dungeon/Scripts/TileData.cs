@@ -21,7 +21,7 @@ public class TileData
 {
     public Vector2Int gridPosition;
     public TileType type;
-
+    public int floorIndex; //used for editor
     public WallData walls;
    
     public bool occupied;

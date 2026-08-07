@@ -9,15 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: deathGoldDrop.x
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: deathGoldDrop.y
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.name
-      value: Purple Slime
+      value: Goblin
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.defence
@@ -25,15 +25,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.totalMagic
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.currentMagic
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.totalStamina
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.attackRange.x
@@ -41,11 +41,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.attackRange.y
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.currentStamina
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.inventory.Array.size
@@ -54,18 +54,18 @@ PrefabInstance:
     - target: {fileID: 848775908343483194, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: combatStats.inventory.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b33fdf8e63a43b845b9f89717c0b1a92, type: 2}
+      objectReference: {fileID: 11400000, guid: 884df9af5996cec4eba5c36fc5a383ed, type: 2}
     - target: {fileID: 1507724253897867075, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1507724253897867075, guid: 3070a142fbe11114987b26c820185666, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507724253897867075, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4371602296226238394, guid: 3070a142fbe11114987b26c820185666, type: 3}
-      propertyPath: attackRange
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4371602296226238394, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: startingState
@@ -73,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d3d78bc95bb97c54e9091a5ef2536bfb, type: 2}
     - target: {fileID: 4371602296226238394, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: maxSpotDistance
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5030789747271550752, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_Controller
@@ -125,7 +125,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6376929219675995255, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_Name
-      value: CombatUnit_Slime02
+      value: CombatUnit_Goblin
       objectReference: {fileID: 0}
     - target: {fileID: 7002726344546704436, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_LocalScale.y
@@ -146,7 +146,7 @@ PrefabInstance:
     - target: {fileID: 7279829329275236575, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ac9ae04214bb64d2d8a5f5c3a880bae9, type: 3}
+      objectReference: {fileID: 21300000, guid: 1561483803f8249169871ded9bade203, type: 3}
     - target: {fileID: 7279829329275236575, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -169,3 +169,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3070a142fbe11114987b26c820185666, type: 3}
+--- !u!1 &241048483428542462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6376929219675995255, guid: 3070a142fbe11114987b26c820185666, type: 3}
+  m_PrefabInstance: {fileID: 6568226309481110409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &972361896679078421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241048483428542462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5f41f5ed7c0b7842b9b0ee89fb98e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bagPrefab: {fileID: 0}

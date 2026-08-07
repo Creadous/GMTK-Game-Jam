@@ -19,6 +19,8 @@ public class DungeonRoom : MonoBehaviour
     public List<TileData> tiles = new List<TileData>();
     public int selectedTile = -1;
 
+    private TileData[,] grid;
+
     [Space]
     public PlayerSpawnLocation startingPosition;
 
@@ -47,13 +49,17 @@ public class DungeonRoom : MonoBehaviour
 
     public TileData[,] GetTileDataGrid()
     {
-        TileData[,] grid = new TileData[width,height];
-        for(int y = 0; y < height; y++)
+        if(grid == null)
         {
-            for(int x = 0; x < width; x++)
+            grid = new TileData[width, height];
+            for (int y = 0; y < height; y++)
             {
-                grid[x,y] = tiles[x + y * width];
+                for (int x = 0; x < width; x++)
+                {
+                    grid[x, y] = tiles[x + y * width];
+                }
             }
+
         }
         return grid;
     }
@@ -170,7 +176,7 @@ public class DungeonRoom : MonoBehaviour
                 {
                     //Genertate floor tile
                     GameObject DungeonTileObject = Instantiate(DungeonTilePrefab, position, Quaternion.Euler(0, 90, 0),containerForDungeonTiles.transform);
-                    DungeonTileObject.GetComponent<DungeonTile>().Setup(new Vector2Int(x,y), true, tile.walls.north, tile.walls.south, tile.walls.east, tile.walls.west);
+                    DungeonTileObject.GetComponent<DungeonTile>().Setup(new Vector2Int(x, y), true, tile);// tile.walls.north, tile.walls.south, tile.walls.east, tile.walls.west,tile.floorIndex);
                 }
 
                 //spawnDoor

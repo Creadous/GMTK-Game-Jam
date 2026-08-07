@@ -129,6 +129,7 @@
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIController.cs" />
     <Compile Include="Assets\Utilites\UtilitesHelper.cs" />
     <Compile Include="Assets\Game\Dungeon\Scripts\DungeonDoorTile.cs" />
+    <Compile Include="Assets\Game\Combat\UI\Scripts\DamagePopUp.cs" />
     <Compile Include="Assets\_3rdParty\Synty\PolygonGeneric\Scripts\Generic_SimpleTranslate.cs" />
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAICondition.cs" />
     <Compile Include="Assets\Game\Combat\CombatActions\Scripts\CombatActionData.cs" />
@@ -151,7 +152,6 @@
     <Compile Include="Assets\Game\Interactable\Scripts\InteractableObject_RecoveryFountain.cs" />
     <Compile Include="Assets\Game\Combat\AI\Scripts\CombatUnitAIAction.cs" />
     <Compile Include="Assets\Game\Core\Scripts\CharacterData.cs" />
-    <Compile Include="Assets\Game\Combat\UI\Scripts\DamagePopUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

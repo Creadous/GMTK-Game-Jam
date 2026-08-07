@@ -10,14 +10,17 @@ public class DungeonTile : MonoBehaviour
     public GameObject southwallObject;
     public GameObject eastwallObject;
     public GameObject westwallObject;
+    public List<GameObject> floorType;
 
-    public void Setup(Vector2Int gridPosition, bool floor, bool northwall, bool southwall, bool eastwall, bool westwall)
+    public void Setup(Vector2Int gridPosition,bool floor, TileData tile)//  bool floor, bool northwall, bool southwall, bool eastwall, bool westwall, int floorindex)
     {
-        gridPos = gridPosition;
+       gridPos = gridPosition;
         if (floor) floorObject.SetActive(true);
-        if (northwall) northwallObject.SetActive(true);
-        if (southwall) southwallObject.SetActive(true);
-        if (eastwall) eastwallObject.SetActive(true);
-        if (westwall) westwallObject.SetActive(true);
+        if (tile.walls.north) northwallObject.SetActive(true);
+        if (tile.walls.south) southwallObject.SetActive(true);
+        if (tile.walls.east) eastwallObject.SetActive(true);
+        if (tile.walls.west) westwallObject.SetActive(true);
+        floorType[0].SetActive(false);
+        floorType[tile.floorIndex].SetActive(true);
     }
 }

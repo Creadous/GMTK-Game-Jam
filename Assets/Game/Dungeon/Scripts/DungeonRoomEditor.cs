@@ -131,6 +131,8 @@ public class DungeonRoomEditor : Editor
 
         tile.type = (TileType)EditorGUILayout.EnumPopup("Type",tile.type);
 
+        tile.floorIndex = EditorGUILayout.IntField("floor index", tile.floorIndex);
+
         tile.walls.north = EditorGUILayout.Toggle("North Wall",tile.walls.north);
 
         tile.walls.south = EditorGUILayout.Toggle("South Wall", tile.walls.south);
@@ -140,6 +142,7 @@ public class DungeonRoomEditor : Editor
 
         tile.walls.west = EditorGUILayout.Toggle("West Wall", tile.walls.west);
 
+        tile.walls.west = EditorGUILayout.Toggle("West Wall", tile.walls.west);
 
         if (EditorGUI.EndChangeCheck())
         {

@@ -90,9 +90,13 @@ public class CombatUnitAIAction : ScriptableObject
         var Path = AStarPathfinding.instance.FindPath(unitAIController.combatUnit.crawlerMovment.gridLocation, PlayerController.instance.movment.gridLocation);
 
         Vector2Int enemyPos = unitAIController.combatUnit.crawlerMovment.gridLocation;
-        Vector2Int difference = Path[1] - enemyPos;
-        direction = PickMovementDirectionHelper(unitAIController, difference);
-        yield return unitAIController.combatUnit.crawlerMovment.Move(direction);
+        int nextPathIndex = 1;
+        if(Path.Count > 1) //no next step your standing on the enemy
+        {
+            Vector2Int difference = Path[nextPathIndex] - enemyPos;
+            direction = PickMovementDirectionHelper(unitAIController, difference);
+            yield return unitAIController.combatUnit.crawlerMovment.Move(direction);
+        }
         yield return null;
     }
     //helper
@@ -152,7 +156,7 @@ public class CombatUnitAIAction : ScriptableObject
         Vector3 direction = target - start;
         float distance = direction.magnitude;
 
-        if (distance < unitAIController.maxSpotDistance)
+        if (distance <= unitAIController.maxSpotDistance)
         {
             if (Physics.Raycast(
             start,

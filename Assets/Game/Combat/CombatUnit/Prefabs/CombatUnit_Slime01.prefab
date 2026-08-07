@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: d3d78bc95bb97c54e9091a5ef2536bfb, type: 2}
     - target: {fileID: 4371602296226238394, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: maxSpotDistance
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5030789747271550752, guid: 3070a142fbe11114987b26c820185666, type: 3}
       propertyPath: m_Controller
