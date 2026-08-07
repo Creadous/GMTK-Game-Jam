@@ -129,7 +129,7 @@ public class ItemSwapMenuController : MonoBehaviour
     private void AddItem()
     {
         PlayerController.instance.combatUnit.combatStats.inventory[buttonSelection.selectedIndex] = newItemReff;
-        PlayerCombatActionController.instance.UpdateActionButtons(); // this will foce the buttons to update
+        PlayerCombatActionController.instance.UpdateActionButtons(buttonSelection.selectedIndex); // this will foce the buttons to update only to the index because there a bug that update amount of points and reset used potions
     }
 
     public bool IsSlotFull()

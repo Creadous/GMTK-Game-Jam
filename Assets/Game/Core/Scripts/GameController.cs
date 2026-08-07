@@ -125,9 +125,12 @@ public class GameController : MonoBehaviour
     #region shop
     public void LaunchShopMenu(InteractableObject_NPC talker)
     {
-        var menuObject = Instantiate(shopMenuPrefab, Canvas);
-        shopmenu = menuObject.GetComponent<ShopMenuController>();
-        shopmenu.SetUp(talker);
+        if(shopmenu == null)
+        {
+            var menuObject = Instantiate(shopMenuPrefab, Canvas);
+            shopmenu = menuObject.GetComponent<ShopMenuController>();
+            shopmenu.SetUp(talker);
+        }
     }
     
     public void CloseShoppingMenu()

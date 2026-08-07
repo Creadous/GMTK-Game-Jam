@@ -59,4 +59,8 @@ public class PlayerCombatActionController : MonoBehaviour
         }
         
     }
+    public void UpdateActionButtons(int index)
+    {
+        playerActionButtons[index].SetUp(PlayerController.instance.combatUnit.combatStats.inventory[index]);
+    }
 }
